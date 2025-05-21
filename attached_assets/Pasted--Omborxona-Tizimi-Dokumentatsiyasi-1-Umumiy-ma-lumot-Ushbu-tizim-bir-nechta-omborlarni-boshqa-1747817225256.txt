@@ -1,0 +1,97 @@
+
+# Omborxona Tizimi Dokumentatsiyasi
+
+## 1. Umumiy ma'lumot
+Ushbu tizim bir nechta omborlarni boshqarish imkonini beradi. Har bir ombor alohida hisobga olinadi va o'z ma'lumotlariga ega.
+
+## 2. Asosiy Funksiyalar
+
+### 2.1. Omborlar boshqaruvi
+- Yangi ombor yaratish
+- Omborlarni tahrirlash
+- Omborlarni o'chirish
+- Omborlar ro'yxatini ko'rish
+
+### 2.2. Mahsulotlar boshqaruvi
+- Mahsulotlarni omborga kiritish
+- Mahsulotlarni ombordan chiqarish
+- Mahsulotlar miqdorini nazorat qilish
+- Yaroqlilik muddatini kuzatish
+
+## 3. API Endpointlar
+
+### 3.1. Ombor yaratish
+- **URL**: `/api/warehouses`
+- **Method**: `POST`
+- **Body**:
+```json
+{
+  "name": "Asosiy ombor",
+  "code": "WH001",
+  "location": "Toshkent sh.",
+  "description": "Markaziy ombor"
+}
+```
+
+### 3.2. Mahsulot qo'shish
+- **URL**: `/api/inventory/items`
+- **Method**: `POST`
+- **Body**:
+```json
+{
+  "warehouse": "warehouse_id",
+  "name": "Mahsulot nomi",
+  "code": "PRD001",
+  "type": "medicine",
+  "unit": "l",
+  "quantity": 4,
+  "price": 7,
+  "expiryDate": "2025-05-20",
+  "location": "A12",
+  "supplier": "Yetkazib beruvchi"
+}
+```
+
+## 4. Ma'lumotlar Tuzilishi
+
+### 4.1. Ombor (Warehouse)
+```typescript
+{
+  name: string;         // Ombor nomi
+  code: string;         // Ombor kodi
+  location: string;     // Joylashuvi
+  description?: string; // Tavsif
+  isActive: boolean;    // Holati
+}
+```
+
+### 4.2. Mahsulot (InventoryItem)
+```typescript
+{
+  warehouse: ObjectId;  // Ombor ID si
+  name: string;        // Nomi
+  code: string;        // Kodi
+  type: string;        // Turi
+  unit: string;        // O'lchov birligi
+  quantity: number;    // Miqdori
+  price: number;       // Narxi
+  supplier?: string;   // Yetkazib beruvchi
+  expiryDate?: Date;   // Yaroqlilik muddati
+}
+```
+
+## 5. Hisobotlar
+- Ombor bo'yicha umumiy hisobot
+- Mahsulotlar harakati hisoboti
+- Kam qolgan mahsulotlar hisoboti
+- Yaroqlilik muddati yaqinlashgan mahsulotlar
+
+## 6. Ruxsatlar
+- **Admin**: Barcha amallarni bajarish
+- **Manager**: Mahsulotlarni boshqarish
+- **Worker**: Faqat ko'rish
+
+## 7. Xavfsizlik
+- Har bir amal qayd qilinadi
+- Mahsulot miqdori manfiy bo'lishi mumkin emas
+- Yaroqlilik muddati nazorati

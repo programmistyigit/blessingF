@@ -1,0 +1,99 @@
+Tranzaksiyalarni olishda xatolik: TypeError: Cannot read properties of undefined (reading 'transactions')
+    at fetchTransactions (FinancePage.tsx:196:32)
+overrideMethod @ hook.js:608
+fetchTransactions @ FinancePage.tsx:200
+await in fetchTransactions
+(anonymous) @ FinancePage.tsx:182
+commitHookEffectListMount @ chunk-RPCDYKBN.js?v=670fd223:16915
+commitPassiveMountOnFiber @ chunk-RPCDYKBN.js?v=670fd223:18156
+commitPassiveMountEffects_complete @ chunk-RPCDYKBN.js?v=670fd223:18129
+commitPassiveMountEffects_begin @ chunk-RPCDYKBN.js?v=670fd223:18119
+commitPassiveMountEffects @ chunk-RPCDYKBN.js?v=670fd223:18109
+flushPassiveEffectsImpl @ chunk-RPCDYKBN.js?v=670fd223:19490
+flushPassiveEffects @ chunk-RPCDYKBN.js?v=670fd223:19447
+performSyncWorkOnRoot @ chunk-RPCDYKBN.js?v=670fd223:18868
+flushSyncCallbacks @ chunk-RPCDYKBN.js?v=670fd223:9119
+commitRootImpl @ chunk-RPCDYKBN.js?v=670fd223:19432
+commitRoot @ chunk-RPCDYKBN.js?v=670fd223:19277
+finishConcurrentRender @ chunk-RPCDYKBN.js?v=670fd223:18805
+performConcurrentWorkOnRoot @ chunk-RPCDYKBN.js?v=670fd223:18718
+workLoop @ chunk-RPCDYKBN.js?v=670fd223:197
+flushWork @ chunk-RPCDYKBN.js?v=670fd223:176
+performWorkUntilDeadline @ chunk-RPCDYKBN.js?v=670fd223:384Understand this error
+FinancePage.tsx:463 Go'sht sotuvlarini olishda xatolik: TypeError: Cannot read properties of undefined (reading 'sales')
+    at fetchMeatSales (FinancePage.tsx:460:25)
+overrideMethod @ hook.js:608
+fetchMeatSales @ FinancePage.tsx:463
+await in fetchMeatSales
+(anonymous) @ FinancePage.tsx:446
+commitHookEffectListMount @ chunk-RPCDYKBN.js?v=670fd223:16915
+commitPassiveMountOnFiber @ chunk-RPCDYKBN.js?v=670fd223:18156
+commitPassiveMountEffects_complete @ chunk-RPCDYKBN.js?v=670fd223:18129
+commitPassiveMountEffects_begin @ chunk-RPCDYKBN.js?v=670fd223:18119
+commitPassiveMountEffects @ chunk-RPCDYKBN.js?v=670fd223:18109
+flushPassiveEffectsImpl @ chunk-RPCDYKBN.js?v=670fd223:19490
+flushPassiveEffects @ chunk-RPCDYKBN.js?v=670fd223:19447
+commitRootImpl @ chunk-RPCDYKBN.js?v=670fd223:19416
+commitRoot @ chunk-RPCDYKBN.js?v=670fd223:19277
+performSyncWorkOnRoot @ chunk-RPCDYKBN.js?v=670fd223:18895
+flushSyncCallbacks @ chunk-RPCDYKBN.js?v=670fd223:9119
+(anonymous) @ chunk-RPCDYKBN.js?v=670fd223:18627Understand this error
+requests.js:1 
+            
+            
+           GET http://localhost:8000/api/finance/revenues?page=1&limit=10 404 (Not Found)
+s.fetch @ requests.js:1
+(anonymous) @ traffic.js:1
+fetch @ traffic.js:1
+getRevenues @ FinanceService.ts:194
+fetchRevenues @ FinancePage.tsx:784
+(anonymous) @ FinancePage.tsx:778
+commitHookEffectListMount @ chunk-RPCDYKBN.js?v=670fd223:16915
+commitPassiveMountOnFiber @ chunk-RPCDYKBN.js?v=670fd223:18156
+commitPassiveMountEffects_complete @ chunk-RPCDYKBN.js?v=670fd223:18129
+commitPassiveMountEffects_begin @ chunk-RPCDYKBN.js?v=670fd223:18119
+commitPassiveMountEffects @ chunk-RPCDYKBN.js?v=670fd223:18109
+flushPassiveEffectsImpl @ chunk-RPCDYKBN.js?v=670fd223:19490
+flushPassiveEffects @ chunk-RPCDYKBN.js?v=670fd223:19447
+commitRootImpl @ chunk-RPCDYKBN.js?v=670fd223:19416
+commitRoot @ chunk-RPCDYKBN.js?v=670fd223:19277
+performSyncWorkOnRoot @ chunk-RPCDYKBN.js?v=670fd223:18895
+flushSyncCallbacks @ chunk-RPCDYKBN.js?v=670fd223:9119
+(anonymous) @ chunk-RPCDYKBN.js?v=670fd223:18627Understand this error
+FinancePage.tsx:795 Daromadlarni olishda xatolik: Error: Route GET:/api/finance/revenues?page=1&limit=10 not found
+    at Object.getRevenues (FinanceService.ts:204:11)
+    at async fetchRevenues (FinancePage.tsx:784:24)
+overrideMethod @ hook.js:608
+fetchRevenues @ FinancePage.tsx:795
+await in fetchRevenues
+(anonymous) @ FinancePage.tsx:778
+commitHookEffectListMount @ chunk-RPCDYKBN.js?v=670fd223:16915
+commitPassiveMountOnFiber @ chunk-RPCDYKBN.js?v=670fd223:18156
+commitPassiveMountEffects_complete @ chunk-RPCDYKBN.js?v=670fd223:18129
+commitPassiveMountEffects_begin @ chunk-RPCDYKBN.js?v=670fd223:18119
+commitPassiveMountEffects @ chunk-RPCDYKBN.js?v=670fd223:18109
+flushPassiveEffectsImpl @ chunk-RPCDYKBN.js?v=670fd223:19490
+flushPassiveEffects @ chunk-RPCDYKBN.js?v=670fd223:19447
+commitRootImpl @ chunk-RPCDYKBN.js?v=670fd223:19416
+commitRoot @ chunk-RPCDYKBN.js?v=670fd223:19277
+performSyncWorkOnRoot @ chunk-RPCDYKBN.js?v=670fd223:18895
+flushSyncCallbacks @ chunk-RPCDYKBN.js?v=670fd223:9119
+(anonymous) @ chunk-RPCDYKBN.js?v=670fd223:18627Understand this error
+FinancePage.tsx:200 Tranzaksiyalarni olishda xatolik: TypeError: Cannot read properties of undefined (reading 'transactions')
+    at fetchTransactions (FinancePage.tsx:196:32)
+overrideMethod @ hook.js:608
+fetchTransactions @ FinancePage.tsx:200
+await in fetchTransactions
+(anonymous) @ FinancePage.tsx:182
+commitHookEffectListMount @ chunk-RPCDYKBN.js?v=670fd223:16915
+commitPassiveMountOnFiber @ chunk-RPCDYKBN.js?v=670fd223:18156
+commitPassiveMountEffects_complete @ chunk-RPCDYKBN.js?v=670fd223:18129
+commitPassiveMountEffects_begin @ chunk-RPCDYKBN.js?v=670fd223:18119
+commitPassiveMountEffects @ chunk-RPCDYKBN.js?v=670fd223:18109
+flushPassiveEffectsImpl @ chunk-RPCDYKBN.js?v=670fd223:19490
+flushPassiveEffects @ chunk-RPCDYKBN.js?v=670fd223:19447
+commitRootImpl @ chunk-RPCDYKBN.js?v=670fd223:19416
+commitRoot @ chunk-RPCDYKBN.js?v=670fd223:19277
+performSyncWorkOnRoot @ chunk-RPCDYKBN.js?v=670fd223:18895
+flushSyncCallbacks @ chunk-RPCDYKBN.js?v=670fd223:9119
+(anonymous) @ chunk-RPCDYKBN.js?v=670fd223:18627Understand this error

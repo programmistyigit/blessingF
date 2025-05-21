@@ -1,0 +1,495 @@
+# Vazifalar (Tasks) API Dokumentatsiyasi
+
+Bu hujjat Parrandachilik Fermasi boshqaruv tizimidagi vazifalar (tasks) modulini batafsil tavsiflaydi. Tizimda vazifalar yaratish, boshqarish va nazorat qilish imkoniyatlari mavjud.
+
+## 1. Umumiy Ma'lumot
+
+- **Asosiy URL**: `https://[domain]/api`
+- **Autentifikatsiya**: JWT token orqali. Token har bir so'rovda HTTP sarlavhasida `Authorization: Bearer [token]` formatida yuborilishi kerak.
+- **So'rov va javob formati**: JSON
+
+## 2. Asosiy Tushunchalar
+
+### 2.1 Vazifa Statusi (TaskStatus)
+
+Vazifalarning holati quyidagi statuslar bilan belgilanadi:
+
+- `pending`: Kutilmoqda
+- `in_progress`: Bajarilmoqda
+- `completed`: Bajarilgan
+- `cancelled`: Bekor qilingan
+- `overdue`: Muddati o'tgan
+
+### 2.2 Vazifa Prioriteti (TaskPriority)
+
+Vazifalarning muhimlik darajasi:
+
+- `low`: Past
+- `medium`: O'rta
+- `high`: Yuqori
+- `urgent`: Juda muhim/shoshilinch
+
+### 2.3 Vazifa Turlari (TaskType)
+
+Ferma boshqaruviga oid vazifa turlari:
+
+- `feeding`: Oziqlantirish
+- `cleaning`: Tozalash
+- `vaccination`: Vaksinatsiya
+- `maintenance`: Texnik xizmat ko'rsatish
+- `measurement`: O'lchash (vazn o'lchash, statistika)
+- `medication`: Dori berish
+- `other`: Boshqa vazifalar
+
+## 3. API Endpointlari
+
+### 3.1 Yangi Vazifa Yaratish
+
+- **URL**: `/api/tasks`
+- **Method**: `POST`
+- **Auth**: Talab qilinadi
+- **Vazifa**: Yangi vazifa yaratish
+
+**So'rov (Request):**
+```json
+{
+  "title": "3-sexni tozalash",
+  "description": "3-sexni tozalash va dezinfeksiya qilish",
+  "type": "cleaning",
+  "section": "60d21b4667d0d8992e610c87",
+  "batch": "60d21b4667d0d8992e610c88",
+  "assignedTo": ["60d21b4667d0d8992e610c85", "60d21b4667d0d8992e610c86"],
+  "supervisors": ["60d21b4667d0d8992e610c84"],
+  "priority": "high",
+  "startDate": "2023-06-20T08:00:00.000Z",
+  "dueDate": "2023-06-20T17:00:00.000Z",
+  "isRecurring": false,
+  "notes": "Maxsus dezinfeksiya vositalaridan foydalaning"
+}
+```
+
+**Javob (Response):**
+```json
+{
+  "success": true,
+  "message": "Vazifa muvaffaqiyatli yaratildi",
+  "data": {
+    "task": {
+      "id": "60d21b4667d0d8992e610c90",
+      "title": "3-sexni tozalash",
+      "description": "3-sexni tozalash va dezinfeksiya qilish",
+      "type": "cleaning",
+      "section": {
+        "id": "60d21b4667d0d8992e610c87",
+        "name": "3-sex"
+      },
+      "batch": {
+        "id": "60d21b4667d0d8992e610c88",
+        "batchNumber": "B-2023-06"
+      },
+      "assignedTo": [
+        {
+          "id": "60d21b4667d0d8992e610c85",
+          "name": "Aziz Soliyev"
+        },
+        {
+          "id": "60d21b4667d0d8992e610c86",
+          "name": "Zokir Hamidov"
+        }
+      ],
+      "supervisors": [
+        {
+          "id": "60d21b4667d0d8992e610c84",
+          "name": "Farhod Karimov"
+        }
+      ],
+      "priority": "high",
+      "status": "pending",
+      "startDate": "2023-06-20T08:00:00.000Z",
+      "dueDate": "2023-06-20T17:00:00.000Z",
+      "isRecurring": false,
+      "notes": "Maxsus dezinfeksiya vositalaridan foydalaning",
+      "completionPercentage": 0,
+      "createdBy": {
+        "id": "60d21b4667d0d8992e610c83",
+        "name": "Alisher Zokirov"
+      },
+      "createdAt": "2023-06-19T12:00:00.000Z",
+      "updatedAt": "2023-06-19T12:00:00.000Z"
+    }
+  }
+}
+```
+
+### 3.2 Vazifani Yangilash
+
+- **URL**: `/api/tasks/:id`
+- **Method**: `PUT`
+- **Auth**: Talab qilinadi
+- **Vazifa**: Mavjud vazifani yangilash
+
+**So'rov (Request):**
+```json
+{
+  "title": "3-sexni tozalash va dezinfeksiya",
+  "description": "3-sexni tozalash va dezinfeksiya qilish, maxsus ahamiyat berish",
+  "priority": "urgent",
+  "dueDate": "2023-06-20T16:00:00.000Z"
+}
+```
+
+**Javob (Response):**
+```json
+{
+  "success": true,
+  "message": "Vazifa muvaffaqiyatli yangilandi",
+  "data": {
+    "task": {
+      "id": "60d21b4667d0d8992e610c90",
+      "title": "3-sexni tozalash va dezinfeksiya",
+      "description": "3-sexni tozalash va dezinfeksiya qilish, maxsus ahamiyat berish",
+      "priority": "urgent",
+      "dueDate": "2023-06-20T16:00:00.000Z",
+      "status": "pending",
+      "updatedAt": "2023-06-19T13:00:00.000Z"
+      // Boshqa ma'lumotlar...
+    }
+  }
+}
+```
+
+### 3.3 Vazifa Holatini Yangilash
+
+- **URL**: `/api/tasks/:id/status`
+- **Method**: `POST`
+- **Auth**: Talab qilinadi
+- **Vazifa**: Vazifa statusini yangilash
+
+**So'rov (Request):**
+```json
+{
+  "status": "in_progress",
+  "completionPercentage": 30,
+  "notes": "Tozalash ishlari boshlandi"
+}
+```
+
+**Javob (Response):**
+```json
+{
+  "success": true,
+  "message": "Vazifa holati muvaffaqiyatli yangilandi",
+  "data": {
+    "task": {
+      "id": "60d21b4667d0d8992e610c90",
+      "status": "in_progress",
+      "completionPercentage": 30,
+      "notes": "Tozalash ishlari boshlandi",
+      "updatedAt": "2023-06-19T14:00:00.000Z"
+      // Boshqa ma'lumotlar...
+    }
+  }
+}
+```
+
+### 3.4 Bitta Vazifani Olish
+
+- **URL**: `/api/tasks/:id`
+- **Method**: `GET`
+- **Auth**: Talab qilinadi
+- **Vazifa**: Ma'lum ID bo'yicha vazifani olish
+
+**Javob (Response):**
+```json
+{
+  "success": true,
+  "data": {
+    "task": {
+      "id": "60d21b4667d0d8992e610c90",
+      "title": "3-sexni tozalash va dezinfeksiya",
+      "description": "3-sexni tozalash va dezinfeksiya qilish, maxsus ahamiyat berish",
+      "type": "cleaning",
+      "section": {
+        "id": "60d21b4667d0d8992e610c87",
+        "name": "3-sex"
+      },
+      "batch": {
+        "id": "60d21b4667d0d8992e610c88",
+        "batchNumber": "B-2023-06"
+      },
+      "assignedTo": [
+        {
+          "id": "60d21b4667d0d8992e610c85",
+          "name": "Aziz Soliyev"
+        },
+        {
+          "id": "60d21b4667d0d8992e610c86",
+          "name": "Zokir Hamidov"
+        }
+      ],
+      "supervisors": [
+        {
+          "id": "60d21b4667d0d8992e610c84",
+          "name": "Farhod Karimov"
+        }
+      ],
+      "priority": "urgent",
+      "status": "in_progress",
+      "startDate": "2023-06-20T08:00:00.000Z",
+      "dueDate": "2023-06-20T16:00:00.000Z",
+      "isRecurring": false,
+      "notes": "Tozalash ishlari boshlandi",
+      "completionPercentage": 30,
+      "createdBy": {
+        "id": "60d21b4667d0d8992e610c83",
+        "name": "Alisher Zokirov"
+      },
+      "createdAt": "2023-06-19T12:00:00.000Z",
+      "updatedAt": "2023-06-19T14:00:00.000Z"
+    }
+  }
+}
+```
+
+### 3.5 Vazifalar Ro'yxatini Olish
+
+- **URL**: `/api/tasks`
+- **Method**: `GET`
+- **Auth**: Talab qilinadi
+- **Vazifa**: Filtrlar bilan vazifalar ro'yxatini olish
+
+**So'rov parametrlari (Query Parameters):**
+- `page`: Sahifa raqami (default: 1)
+- `limit`: Bir sahifadagi maksimal vazifalar soni (default: 10)
+- `status`: Status filteri (comma-separated, masalan: `pending,in_progress`)
+- `type`: Turdagi vazifalar (comma-separated, masalan: `feeding,vaccination`)
+- `section`: Ma'lum sex ID si
+- `batch`: Ma'lum partiya ID si
+- `assignedTo`: Muayyan foydalanuvchiga biriktirilgan vazifalar
+- `startDate`: Boshlang'ich sana filtri (ISO format)
+- `endDate`: Tugash sana filtri (ISO format)
+- `isOverdue`: Muddati o'tgan vazifalarni filtrlash (`true` yoki `false`)
+
+**Javob (Response):**
+```json
+{
+  "success": true,
+  "data": {
+    "tasks": [
+      {
+        "id": "60d21b4667d0d8992e610c90",
+        "title": "3-sexni tozalash va dezinfeksiya",
+        "type": "cleaning",
+        "section": {
+          "id": "60d21b4667d0d8992e610c87",
+          "name": "3-sex"
+        },
+        "assignedTo": [
+          {
+            "id": "60d21b4667d0d8992e610c85",
+            "name": "Aziz Soliyev"
+          },
+          {
+            "id": "60d21b4667d0d8992e610c86",
+            "name": "Zokir Hamidov"
+          }
+        ],
+        "priority": "urgent",
+        "status": "in_progress",
+        "startDate": "2023-06-20T08:00:00.000Z",
+        "dueDate": "2023-06-20T16:00:00.000Z",
+        "completionPercentage": 30
+      },
+      // Boshqa vazifalar...
+    ],
+    "total": 32,
+    "totalPages": 4,
+    "currentPage": 1
+  }
+}
+```
+
+### 3.6 Men Uchun Vazifalar
+
+- **URL**: `/api/tasks/my`
+- **Method**: `GET`
+- **Auth**: Talab qilinadi
+- **Vazifa**: Joriy foydalanuvchiga biriktirilgan vazifalarni olish
+
+**Javob (Response):**
+```json
+{
+  "success": true,
+  "data": {
+    "tasks": [
+      {
+        "id": "60d21b4667d0d8992e610c90",
+        "title": "3-sexni tozalash va dezinfeksiya",
+        "type": "cleaning",
+        "section": {
+          "id": "60d21b4667d0d8992e610c87",
+          "name": "3-sex"
+        },
+        "priority": "urgent",
+        "status": "in_progress",
+        "dueDate": "2023-06-20T16:00:00.000Z",
+        "completionPercentage": 30
+      },
+      // Boshqa vazifalar...
+    ],
+    "total": 8,
+    "totalPages": 1,
+    "currentPage": 1
+  }
+}
+```
+
+### 3.7 Muddati O'tgan Vazifalar
+
+- **URL**: `/api/tasks/overdue`
+- **Method**: `GET`
+- **Auth**: Talab qilinadi
+- **Vazifa**: Muddati o'tgan vazifalarni olish
+
+### 3.8 Sex Bo'yicha Vazifalar
+
+- **URL**: `/api/sections/:sectionId/tasks`
+- **Method**: `GET`
+- **Auth**: Talab qilinadi
+- **Vazifa**: Ma'lum sexga oid vazifalarni olish
+
+### 3.9 Partiya Bo'yicha Vazifalar
+
+- **URL**: `/api/batches/:batchId/tasks`
+- **Method**: `GET`
+- **Auth**: Talab qilinadi
+- **Vazifa**: Ma'lum partiyaga oid vazifalarni olish
+
+### 3.10 Davr Boshlanishi Uchun Vazifalar Yaratish
+
+- **URL**: `/api/periods/:periodId/start-tasks`
+- **Method**: `POST`
+- **Auth**: Talab qilinadi, faqat `OWNER` yoki `MANAGER` rollari
+- **Vazifa**: Yangi davr boshlanishi bilan bog'liq vazifalarni avtomatik yaratish
+
+**So'rov (Request):**
+```json
+{
+  "section": "60d21b4667d0d8992e610c87",
+  "assignedTo": ["60d21b4667d0d8992e610c85", "60d21b4667d0d8992e610c86"]
+}
+```
+
+**Javob (Response):**
+```json
+{
+  "success": true,
+  "message": "Davr boshlanishi uchun vazifalar muvaffaqiyatli yaratildi",
+  "data": {
+    "tasks": [
+      {
+        "id": "60d21b4667d0d8992e610c91",
+        "title": "Sexni dezinfeksiya qilish",
+        "type": "cleaning",
+        "priority": "high",
+        "status": "pending"
+      },
+      {
+        "id": "60d21b4667d0d8992e610c92",
+        "title": "Dastlabki yem zapasini tayyorlash",
+        "type": "feeding",
+        "priority": "high",
+        "status": "pending"
+      },
+      // Boshqa vazifalar...
+    ],
+    "total": 5
+  }
+}
+```
+
+## 4. WebSocket Xabarnomalar
+
+Vazifalar bilan bog'liq real-vaqt xabarnomalar WebSocket orqali yuboriladi.
+
+### 4.1 Vazifa Biriktirilganda
+
+Vazifa biriktirilganda foydalanuvchi quyidagi formatdagi xabarnoma oladi:
+
+```json
+{
+  "type": "task_assigned",
+  "data": {
+    "taskId": "60d21b4667d0d8992e610c90",
+    "title": "3-sexni tozalash va dezinfeksiya",
+    "priority": "urgent",
+    "dueDate": "2023-06-20T16:00:00.000Z",
+    "message": "Sizga \"3-sexni tozalash va dezinfeksiya\" vazifasi biriktirildi",
+    "timestamp": "2023-06-19T12:00:00.000Z"
+  }
+}
+```
+
+### 4.2 Vazifa Yaratilganda (Supervisor uchun)
+
+Supervisor vazifasi yaratilganda quyidagi formatdagi xabarnoma oladi:
+
+```json
+{
+  "type": "task_created",
+  "data": {
+    "taskId": "60d21b4667d0d8992e610c90",
+    "title": "3-sexni tozalash va dezinfeksiya",
+    "assignedTo": ["60d21b4667d0d8992e610c85", "60d21b4667d0d8992e610c86"],
+    "priority": "urgent",
+    "dueDate": "2023-06-20T16:00:00.000Z",
+    "message": "\"3-sexni tozalash va dezinfeksiya\" vazifasi yaratildi va siz supervisor etib tayinlandingiz",
+    "timestamp": "2023-06-19T12:00:00.000Z"
+  }
+}
+```
+
+### 4.3 Vazifa Holati Yangilanganda
+
+Vazifa holati yangilanganda, daxldor xodimlar va supervisorlar quyidagi formatdagi xabarnoma oladi:
+
+```json
+{
+  "type": "task_updated",
+  "data": {
+    "taskId": "60d21b4667d0d8992e610c90",
+    "title": "3-sexni tozalash va dezinfeksiya",
+    "status": "in_progress",
+    "completionPercentage": 30,
+    "updatedBy": {
+      "id": "60d21b4667d0d8992e610c85",
+      "name": "Aziz Soliyev"
+    },
+    "message": "\"3-sexni tozalash va dezinfeksiya\" vazifasining holati \"in_progress\" ga yangilandi",
+    "timestamp": "2023-06-19T14:00:00.000Z"
+  }
+}
+```
+
+## 5. Rol-Asoslangan Ruxsatlar
+
+### 5.1 Boss (Korxona Boshlig'i) Ruxsatlari
+
+- Barcha vazifalarni ko'rish va filtr qilish
+- Yangi vazifalar yaratish
+- Har qanday vazifani yangilash
+- Har qanday vazifani o'chirish
+- Vazifalarni taqsimlash va tayinlash
+
+### 5.2 Manager Ruxsatlari
+
+- O'z bo'limiga tegishli vazifalarni ko'rish
+- O'z bo'limiga yangi vazifalar yaratish
+- O'z bo'limiga oid vazifalarni yangilash
+- O'ziga biriktirilgan vazifalarni bajarish va ularga yangilanish kiritish
+
+### 5.3 Worker Ruxsatlari
+
+- O'ziga biriktirilgan vazifalarni ko'rish
+- O'z vazifalarining holatini yangilash
+- Vazifa bajarilganini belgilash

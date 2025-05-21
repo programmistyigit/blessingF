@@ -1,0 +1,454 @@
+# Boss (Bo'lim boshlig'i) uchun API Dokumentatsiyasi
+
+Bu hujjatda faqat "boss" rolida ishlaydigan foydalanuvchilar uchun mo'ljallangan API endpointlari va ular asosida yaratilishi kerak bo'lgan frontend sahifalari tavsiflangan.
+
+## Umumiy ma'lumot
+
+- **Asosiy URL**: `http://localhost:5000/api`
+- **Autentifikatsiya**: JWT token orqali. Token har bir so'rovda HTTP sarlavhasida `Authorization: Bearer [token]` formatida yuborilishi kerak.
+- **So'rov va javob formati**: JSON
+
+## Boss uchun mavjud API endpointlari
+
+### 1. Foydalanuvchilar boshqaruvi
+
+#### 1.1 Barcha foydalanuvchilarni olish
+
+- **URL**: `/users`
+- **Method**: `GET`
+- **Vazifa**: Bo'limga tegishli barcha foydalanuvchilarni olish
+- **So'rov parametrlari**: `?role=worker&section=60d21b4667d0d8992e610c87&limit=10&page=1`
+
+**Javob (Response):**
+```json
+{
+  "success": true,
+  "total": 45,
+  "page": 1,
+  "limit": 10,
+  "users": [
+    {
+      "id": "60d21b4667d0d8992e610c85",
+      "name": "Alisher Zokirov",
+      "phoneNumber": "+998901234567",
+      "role": "boss",
+      "section": {
+        "id": "60d21b4667d0d8992e610c87",
+        "name": "Tovuq parvarish bo'limi"
+      },
+      "position": {
+        "id": "60d21b4667d0d8992e610c90",
+        "name": "Bo'lim boshlig'i"
+      },
+      "createdAt": "2023-06-19T12:00:00.000Z",
+      "updatedAt": "2023-06-19T12:00:00.000Z"
+    },
+    // Boshqa foydalanuvchilar...
+  ]
+}
+```
+
+#### 1.2 Yangi foydalanuvchi qo'shish
+
+- **URL**: `/users`
+- **Method**: `POST`
+- **Vazifa**: Yangi foydalanuvchi qo'shish (faqat o'z bo'limiga)
+
+**So'rov (Request):**
+```json
+{
+  "name": "Jamshid Karimov",
+  "phoneNumber": "+998901234568",
+  "role": "worker",
+  "section": "60d21b4667d0d8992e610c87",
+  "position": "60d21b4667d0d8992e610c91"
+}
+```
+
+**Javob (Response):**
+```json
+{
+  "success": true,
+  "user": {
+    "id": "60d21b4667d0d8992e610c86",
+    "name": "Jamshid Karimov",
+    "phoneNumber": "+998901234568",
+    "role": "worker",
+    "section": "60d21b4667d0d8992e610c87",
+    "position": "60d21b4667d0d8992e610c91",
+    "createdAt": "2023-06-19T12:00:00.000Z",
+    "updatedAt": "2023-06-19T12:00:00.000Z"
+  }
+}
+```
+
+#### 1.3 Foydalanuvchi ma'lumotlarini yangilash
+
+- **URL**: `/users/:id`
+- **Method**: `PUT`
+- **Vazifa**: Mavjud foydalanuvchi ma'lumotlarini yangilash (faqat o'z bo'limidagi)
+
+**So'rov (Request):**
+```json
+{
+  "name": "Jamshid Karimov",
+  "phoneNumber": "+998901234568",
+  "role": "manager",
+  "section": "60d21b4667d0d8992e610c87",
+  "position": "60d21b4667d0d8992e610c91"
+}
+```
+
+### 2. Yo'qlamalar boshqaruvi
+
+#### 2.1 Yo'qlama vazifasini yaratish
+
+- **URL**: `/attendance/tasks`
+- **Method**: `POST`
+- **Vazifa**: Yo'qlama olish vazifasini xodimga belgilash
+
+**So'rov (Request):**
+```json
+{
+  "assignedTo": "60d21b4667d0d8992e610c85",
+  "section": "60d21b4667d0d8992e610c87",
+  "date": "2025-05-06T00:00:00.000Z",
+  "notes": "Ertalabbi yo'qlama"
+}
+```
+
+#### 2.2 Sex bo'yicha yo'qlama statistikasini olish
+
+- **URL**: `/attendance/stats`
+- **Method**: `GET`
+- **Vazifa**: Bo'limda yo'qlamalar statistikasini olish
+- **So'rov parametrlari**: `?startDate=2025-05-01&endDate=2025-05-31&section=60d21b4667d0d8992e610c87`
+
+### 3. Lavozimlar boshqaruvi
+
+#### 3.1 Yangi lavozim yaratish
+
+- **URL**: `/positions`
+- **Method**: `POST`
+- **Vazifa**: Bo'lim uchun yangi lavozim yaratish
+
+**So'rov (Request):**
+```json
+{
+  "name": "Elektrik",
+  "description": "Ferma elektr tizimlarini ta'mirlash va nazorat qilish",
+  "responsibilities": [
+    "Elektr tizimlarini nazorat qilish",
+    "Buzilgan elektr jihozlarini ta'mirlash",
+    "Yangi elektr liniyalarini o'rnatish"
+  ],
+  "permissions": [
+    "inventory:read",
+    "reports:read"
+  ],
+  "baseSalary": 3500000
+}
+```
+
+### 4. Tovuq partiyalari (Batch) boshqaruvi
+
+#### 4.1 Yangi tovuq partiyasini yaratish
+
+- **URL**: `/batches`
+- **Method**: `POST`
+- **Vazifa**: Yangi tovuq partiyasini yaratish
+
+**So'rov (Request):**
+```json
+{
+  "batchNumber": "B-2025-001",
+  "section": "60d21b4667d0d8992e610c87",
+  "period": "60d21b4667d0d8992e610c88",
+  "arrivalDate": "2025-05-01T00:00:00.000Z",
+  "initialCount": 1000,
+  "breed": "Broiler Ross 308",
+  "supplier": "Tovuq fermasi MChJ",
+  "notes": "Yangi partiya",
+  "acceptableMortalityRate": 3,
+  "acceptableGrowthVariance": 0.7,
+  "notificationPhoneNumbers": ["+998901234567", "+998901234568"]
+}
+```
+
+### 5. So'yish partiyalari boshqaruvi
+
+#### 5.1 So'yish partiyasini yaratish
+
+- **URL**: `/slaughter/batches`
+- **Method**: `POST`
+- **Vazifa**: Yangi so'yish partiyasini yaratish
+
+**So'rov (Request):**
+```json
+{
+  "batchNumber": "SB-2025-001",
+  "chickenBatch": "60d21b4667d0d8992e610c91",
+  "section": "60d21b4667d0d8992e610c87",
+  "plannedDate": "2025-05-15T00:00:00.000Z",
+  "preslaughterCount": 950,
+  "preslaughterAverageWeight": 2.8,
+  "processingTeam": ["60d21b4667d0d8992e610c89", "60d21b4667d0d8992e610c90"],
+  "notes": "Xaridorlar uchun maxsus so'yish partiyasi"
+}
+```
+
+### 6. Hisobotlar boshqaruvi
+
+#### 6.1 Bo'lim hisobotlarini olish
+
+- **URL**: `/reports/section/:sectionId`
+- **Method**: `POST`
+- **Vazifa**: Bo'lim bo'yicha batafsil hisobot olish
+
+**So'rov (Request):**
+```json
+{
+  "startDate": "2025-05-01T00:00:00.000Z",
+  "endDate": "2025-05-31T00:00:00.000Z",
+  "includeProduction": true,
+  "includeInventory": true,
+  "includeAttendance": true
+}
+```
+
+### 7. Oshxona boshqaruvi
+
+#### 7.1 Kunlik menyu yaratish
+
+- **URL**: `/canteen/daily-menus`
+- **Method**: `POST`
+- **Vazifa**: Menyu yaratish va ishchilarga ovqat berish
+
+**So'rov (Request):**
+```json
+{
+  "date": "2025-05-10T00:00:00.000Z",
+  "items": [
+    {
+      "menuItem": "60d21b4667d0d8992e610c95",
+      "mealTime": "lunch",
+      "servingSize": "standard",
+      "quantity": 50
+    },
+    {
+      "menuItem": "60d21b4667d0d8992e610c96",
+      "mealTime": "lunch",
+      "servingSize": "standard",
+      "quantity": 50
+    }
+  ],
+  "notes": "Maxsus menyu"
+}
+```
+
+### 8. Inventar boshqaruvi
+
+#### 8.1 Inventar harakatini kiritish
+
+- **URL**: `/inventory/transactions`
+- **Method**: `POST`
+- **Vazifa**: Inventar harakatini kiritish (qo'shish yoki sarflash)
+
+**So'rov (Request):**
+```json
+{
+  "itemId": "60d21b4667d0d8992e610c9b",
+  "type": "addition",
+  "quantity": 500,
+  "date": "2025-05-15T12:00:00.000Z",
+  "batchId": null,
+  "price": 4800,
+  "supplier": "Chorvachilik mahsulotlari MChJ",
+  "notes": "Yangi yem partiyasi"
+}
+```
+
+## WebSocket xabarlari
+
+Boss rolida ishlaydigan foydalanuvchi quyidagi WebSocket xabarlarni qabul qiladi:
+
+1. **Ishlab chiqarish hisobotlari** - worker tomonidan yangi hisobot yuborilganda
+2. **Inventar ogohlantirish xabarlari** - inventarda mahsulot kam qolganda
+3. **Soʻyishga tayyor partiyalar tavsiyasi** - tovuq partiyalari so'yishga tayyor bo'lganda
+4. **Xavf haqida ogohlantirishlar** - ferma bo'yicha favqulodda vaziyatlarda
+
+## Boss roli uchun frontend sahifalari
+
+1. **Dashboard (Asosiy sahifa)**
+   - Umumiy statistika
+   - Kun davomida bo'lgan hodisalar
+   - Xavf ostidagi partiyalar
+   - Kam qolgan inventar mahsulotlari
+   - Bugungi yo'qlama statistikasi
+   - So'yishga tayyor partiyalar
+
+2. **Xodimlar sahifasi**
+   - Xodimlar ro'yxati va ma'lumotlari
+   - Xodim qo'shish/o'zgartirish
+   - Lavozimlar boshqaruvi
+   - Yo'qlama vazifalarini tayinlash
+   - Xodimlar yo'qlama statistikasi
+
+3. **Partiyalar boshqaruvi**
+   - Mavjud tovuq partiyalari
+   - Yangi partiya qo'shish
+   - Partiya ma'lumotlarini yangilash
+   - Partiya parametrlarini sozlash
+   - So'yish rejasini tuzish
+
+4. **So'yish boshqaruvi**
+   - So'yish partiyalari ro'yxati
+   - Yangi so'yish partiyasini rejalashtirish
+   - So'yish natijalarini kiritish
+   - Go'sht sotish qaydlarini kiritish
+   - So'yish statistikasi va hisoboti
+
+5. **Inventar boshqaruvi**
+   - Inventar mahsulotlari ro'yxati
+   - Inventar qo'shish/o'zgartirish
+   - Inventar harakatlarini kiritish
+   - Kam qolgan mahsulotlar hisoboti
+   - Inventar tahlili va statistikasi
+
+6. **Hisobotlar**
+   - Kunlik/haftalik/oylik hisobotlar
+   - Bo'lim bo'yicha batafsil hisobotlar
+   - Partiyalar bo'yicha hisobotlar
+   - Hisobotlarni eksport qilish (Excel)
+   - Solishtiruv hisobotlari
+
+7. **Oshxona boshqaruvi**
+   - Menyu elementlarini boshqarish
+   - Kunlik menyuni yaratish
+   - Ovqatlanish statistikasi
+   - Xodimlar fikr-mulohazasi
+   - Inventar iste'moli hisoboti
+
+## Frontend dizayn tavsiyalari
+
+1. **Dashboard element dizayni**
+
+```
++--------------------------------------------------+
+|                   DASHBOARD                      |
++--------------------------------------------------+
+| +-------------+  +-------------+  +-------------+|
+| | Partiyalar  |  | Yo'qlamalar |  |  Inventar   ||
+| |   10 aktiv  |  |  85% keldi  |  | 3 kam tovar ||
+| +-------------+  +-------------+  +-------------+|
+|                                                  |
+| +-----------------+  +-------------------------+ |
+| | So'yishga tayyor |  | Favqulodda xabarlar    | |
+| | B-2025-001       |  | - Elektr ta'minoti     | |
+| | B-2025-003       |  | - Suv ta'minoti        | |
+| +-----------------+  +-------------------------+ |
+|                                                  |
+| +------------------------------------------+     |
+| |           Haftalik statistika            |     |
+| | [Graf: o'sish, o'lim, yem sarfi]         |     |
+| +------------------------------------------+     |
++--------------------------------------------------+
+```
+
+2. **Xodimlar sahifasi dizayni**
+
+```
++--------------------------------------------------+
+|                   XODIMLAR                       |
++--------------------------------------------------+
+| +-------------+  +--------------------------+    |
+| | Xodim qo'shish | Saralash: Barcha rollar ▼ |    |
+| +-------------+  +--------------------------+    |
+|                                                  |
+| +--------------------------------------------------+
+| | Ismi    | Lavozim  | Telefon      | Harakat    |
+| +--------------------------------------------------+
+| | Alisher | Menejer  | +99890123456 | 🖊️ 🗑️     |
+| | Bekzod  | Operator | +99890123457 | 🖊️ 🗑️     |
+| | Gavhar  | Hisobchi | +99890123458 | 🖊️ 🗑️     |
+| +--------------------------------------------------+
+|                                                    |
+| [1] [2] [3] ... [10]  Sahifa: 1 / 10              |
++----------------------------------------------------+
+```
+
+3. **Partiyalar boshqaruvi dizayni**
+
+```
++----------------------------------------------------+
+|                  PARTIYALAR                        |
++----------------------------------------------------+
+| +-------------+  +--------------------------+      |
+| | Partiya qo'shish| Saralash: Barcha statuslar ▼ | |
+| +-------------+  +--------------------------+      |
+|                                                    |
+| +--------------------------------------------------------+
+| | Partiya | Bo'lim | Sana    | Soni | O'rtacha | Status |
+| +--------------------------------------------------------+
+| | B-2025-1| Tovuq-1| 01.05.25| 980  | 2.75 kg  | Active |
+| | B-2025-2| Tovuq-2| 10.05.25| 970  | 2.85 kg  | Active |
+| | B-2025-3| Tovuq-3| 15.05.25| 0    | 0 kg     | Planned|
+| +--------------------------------------------------------+
+|                                                          |
+| [Partiya ma'lumotlari]                                   |
+| +--------------------------------------------------------+
+| | O'sish: 0.35 kg/hafta | O'lim: 1.5% | Yem: 450 kg/kun |
+| | So'yish tavsiyasi: 25-may | Rentabellik: 87%          |
+| +--------------------------------------------------------+
++----------------------------------------------------------+
+```
+
+4. **So'yish boshqaruvi dizayni**
+
+```
++----------------------------------------------------+
+|                SO'YISH BOSHQARUVI                  |
++----------------------------------------------------+
+| +---------------+  +--------------------------+    |
+| | So'yish rejasi  | Saralash: Barcha statuslar ▼ | |
+| +---------------+  +--------------------------+    |
+|                                                    |
+| +--------------------------------------------------------+
+| | So'yish  | Partiya | Sana    | Soni | Og'irligi| Status|
+| +--------------------------------------------------------+
+| | SB-2025-1| B-2025-1| 20.05.25| 950  | 2.8 kg   |Planned|
+| | SB-2025-2| B-2025-2| 29.05.25| 970  | 2.9 kg   |Planned|
+| +--------------------------------------------------------+
+|                                                          |
+| [So'yish ma'lumotlari]                                   |
+| +--------------------------------------------------------+
+| | Go'sht miqdori: 2.5 kg/tovuq | Sifat: A kategoriya    |
+| | Mijozlar: 3 ta | Jami: 7,125,000 so'm                 |
+| +--------------------------------------------------------+
++----------------------------------------------------------+
+```
+
+## Muhim frontend komponentlari
+
+1. **Real vaqt bildirish tizimi**
+   - WebSocket orqali keladigan xabarlarni ko'rsatish
+   - Muhim xabarlar uchun tovush signallarini o'rnatish
+
+2. **Filtrlash va saralash**
+   - Har bir ro'yxatda filtrlash va saralash imkoniyati
+   - Murakkab filtrlarni saqlash imkoniyati
+
+3. **Hisobot yaratuvchi**
+   - Turli xil hisobotlarni yaratish va eksport qilish
+   - Vizual grafik va jadvallar bilan hisobotlar
+
+4. **Xarita komponenti**
+   - Ferma joylanishini xaritada ko'rsatish
+   - Bo'limlar lokatsiyasini belgilash
+
+5. **Statistika paneli**
+   - Interaktiv grafiklar
+   - Real vaqtda yangilanadigan ko'rsatkichlar
+   - Taqqoslanuvchi statistika
+
+Bu frontend komponentlari boss rolida ishlaydigan foydalanuvchilar uchun samarali ish muhitini yaratadi va real vaqtda barcha ferma faoliyatini kuzatish imkoniyatini beradi.

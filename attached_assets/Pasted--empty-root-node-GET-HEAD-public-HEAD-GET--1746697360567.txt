@@ -1,0 +1,175 @@
+└── (empty root node)
+    ├── / (GET, HEAD)
+    │   ├── public/
+    │   │   └── * (HEAD, GET)
+    │   ├── documentation (GET, HEAD)
+    │   │   └── / (GET, HEAD)
+    │   │       ├── static/
+    │   │       │   ├── index.html (GET, HEAD)
+    │   │       │   ├── swagger-initializer.js (GET, HEAD)
+    │   │       │   └── * (HEAD, GET)
+    │   │       ├── json (GET, HEAD)
+    │   │       └── yaml (GET, HEAD)
+    │   ├── api/
+    │   │   ├── a
+    │   │   │   ├── uth/
+    │   │   │   │   ├── login (POST)
+    │   │   │   │   ├── verify (POST)
+    │   │   │   │   ├── me (GET, HEAD)
+    │   │   │   │   └── init-owner (POST)
+    │   │   │   └── ttendance/
+    │   │   │       ├── tasks (POST)
+    │   │   │       │   └── /
+    │   │   │       │       ├── my (GET, HEAD)
+    │   │   │       │       ├── assigned-by-me (GET, HEAD)
+    │   │   │       │       └── :taskId
+    │   │   │       │           └── /
+    │   │   │       │               ├── forward (PUT)
+    │   │   │       │               └── complete (PUT)
+    │   │   │       ├── records (POST)
+    │   │   │       ├── users/
+    │   │   │       │   └── :userId
+    │   │   │       │       └── /
+    │   │   │       │           ├── records (GET, HEAD)
+    │   │   │       │           └── date (GET, HEAD)
+    │   │   │       └── s
+    │   │   │           ├── ections/
+    │   │   │           │   └── :sectionId (GET, HEAD)
+    │   │   │           └── tats (GET, HEAD)
+    │   │   ├── user (GET, HEAD, POST)
+    │   │   │   └── / (GET, HEAD, POST)
+    │   │   │       ├── profile (GET, HEAD)
+    │   │   │       ├── m
+    │   │   │       │   ├── e (GET, HEAD)
+    │   │   │       │   └── anager/
+    │   │   │       │       └── :managerId
+    │   │   │       │           └── /subordinates (GET, HEAD)
+    │   │   │       ├── assign-worker (POST)
+    │   │   │       ├── remove-worker (POST)
+    │   │   │       └── :id (GET, HEAD, PUT)
+    │   │   ├── p
+    │   │   │   ├── roduction (POST)
+    │   │   │   │   └── / (POST)
+    │   │   │   │       ├── overview (GET, HEAD)
+    │   │   │   │       ├── records (GET, HEAD)
+    │   │   │   │       └── start-notifications (POST)
+    │   │   │   ├── eriods/
+    │   │   │   │   └── :periodId
+    │   │   │   │       └── /start-tasks (POST)
+    │   │   │   └── ositions/position
+    │   │   │       ├── s (GET, HEAD, POST)
+    │   │   │       │   └── /
+    │   │   │       │       ├── create-defaults (POST)
+    │   │   │       │       └── :id (GET, HEAD, PUT, DELETE)
+    │   │   │       │           └── /toggle-status (PATCH)
+    │   │   │       └── -types (GET, HEAD)
+    │   │   ├── s
+    │   │   │   ├── chedule (GET, HEAD)
+    │   │   │   ├── ections/
+    │   │   │   │   └── :sectionId
+    │   │   │   │       └── /tasks (GET, HEAD)
+    │   │   │   └── laughter-
+    │   │   │       ├── batches (POST, GET, HEAD)
+    │   │   │       │   └── /
+    │   │   │       │       └── :id (PUT, GET, HEAD)
+    │   │   │       │           └── /complete (PUT)
+    │   │   │       ├── recommendations (GET, HEAD)
+    │   │   │       └── plan (POST)
+    │   │   ├── health-records (GET, HEAD)
+    │   │   ├── inventory/
+    │   │   │   ├── items (GET, HEAD, POST)
+    │   │   │   │   └── /
+    │   │   │   │       └── :id (GET, HEAD, PUT, DELETE)
+    │   │   │   ├── transactions (GET, HEAD, POST)
+    │   │   │   ├── low-stock (GET, HEAD)
+    │   │   │   ├── near-expiry (GET, HEAD)
+    │   │   │   ├── period/
+    │   │   │   │   └── :periodId
+    │   │   │   │       └── /usage (GET, HEAD)
+    │   │   │   ├── batch/
+    │   │   │   │   └── :batchId
+    │   │   │   │       └── /usage (GET, HEAD)
+    │   │   │   ├── section/
+    │   │   │   │   └── :sectionId
+    │   │   │   │       └── /usage (GET, HEAD)
+    │   │   │   └── enums (GET, HEAD)
+    │   │   ├── reports (POST, GET, HEAD)
+    │   │   │   └── /
+    │   │   │       ├── generate (POST)
+    │   │   │       │   └── -excel (POST)
+    │   │   │       ├── s
+    │   │   │       │   ├── tats (GET, HEAD)
+    │   │   │       │   └── ection/
+    │   │   │       │       └── :sectionId (POST)
+    │   │   │       ├── compare-
+    │   │   │       │   ├── periods (POST)
+    │   │   │       │   └── sections (POST)
+    │   │   │       ├── period/
+    │   │   │       │   └── :periodId (POST)
+    │   │   │       ├── batch/
+    │   │   │       │   └── :batchId (POST)
+    │   │   │       ├── available-fields (GET, HEAD)
+    │   │   │       ├── templates (POST, GET, HEAD)
+    │   │   │       ├── download/
+    │   │   │       │   └── :reportId (GET, HEAD)
+    │   │   │       ├── latest (GET, HEAD)
+    │   │   │       └── :id (GET, HEAD, PUT, DELETE)
+    │   │   ├── m
+    │   │   │   ├── aterial-requests (POST, GET, HEAD)
+    │   │   │   │   └── /
+    │   │   │   │       ├── pending-approval (GET, HEAD)
+    │   │   │   │       └── :id (PUT, GET, HEAD)
+    │   │   │   │           └── /comments (POST, GET, HEAD)
+    │   │   │   └── eat-sales (POST, GET, HEAD)
+    │   │   ├── feed (POST)
+    │   │   │   └── /
+    │   │   │       ├── transactions (GET, HEAD)
+    │   │   │       └── inventory (GET, HEAD)
+    │   │   ├── tasks (POST, GET, HEAD)
+    │   │   │   └── /
+    │   │   │       ├── my (GET, HEAD)
+    │   │   │       ├── overdue (GET, HEAD)
+    │   │   │       └── :id (PUT, GET, HEAD)
+    │   │   │           └── /status (POST)
+    │   │   ├── batches/
+    │   │   │   └── :batchId
+    │   │   │       └── /
+    │   │   │           ├── tasks (GET, HEAD)
+    │   │   │           └── check-slaughter-readiness (GET, HEAD)
+    │   │   ├── canteen/
+    │   │   │   ├── me
+    │   │   │   │   ├── al-suggestions (POST, GET, HEAD)
+    │   │   │   │   │   └── /
+    │   │   │   │   │       └── :id (GET, HEAD)
+    │   │   │   │   │           └── /
+    │   │   │   │   │               ├── vote (POST)
+    │   │   │   │   │               ├── comments (POST)
+    │   │   │   │   │               └── approve (POST)
+    │   │   │   │   └── nu-items (GET, HEAD, POST)
+    │   │   │   │       └── /
+    │   │   │   │           └── :id (GET, HEAD, PUT, DELETE)
+    │   │   │   ├── daily-menu (GET, HEAD, POST)
+    │   │   │   │   └── /
+    │   │   │   │       └── :id (PUT, DELETE)
+    │   │   │   ├── assigned-menu (GET, HEAD, POST)
+    │   │   │   ├── ingredients (GET, HEAD, POST)
+    │   │   │   │   └── /
+    │   │   │   │       └── :id (GET, HEAD, PUT)
+    │   │   │   ├── transactions (GET, HEAD, POST)
+    │   │   │   ├── low-stock (GET, HEAD)
+    │   │   │   ├── s
+    │   │   │   │   ├── tats/
+    │   │   │   │   │   ├── daily (GET, HEAD)
+    │   │   │   │   │   └── monthly (GET, HEAD)
+    │   │   │   │   └── end-low-stock-alerts (POST)
+    │   │   │   └── enums (GET, HEAD)
+    │   │   ├── dashboard (GET, HEAD)
+    │   │   │   └── / (GET, HEAD)
+    │   │   │       ├── financial (GET, HEAD)
+    │   │   │       ├── production (GET, HEAD)
+    │   │   │       ├── inventory (GET, HEAD)
+    │   │   │       └── meat-sales (GET, HEAD)
+    │   │   └── ws-broadcast (POST)
+    │   ├── health (GET, HEAD)
+    │   └── wstest (GET, HEAD)
+    └── * (OPTIONS)

@@ -1,0 +1,60 @@
+4
+hook.js:608 The above error occurred in the <SelectItem> component:
+
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-select.js?v=6d7f5ffa:846:7
+    at _c11 (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/components/ui/select.tsx:208:13)
+    at div
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-AXMZZQ2X.js?v=6d7f5ffa:42:13
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-2K77HOHX.js?v=6d7f5ffa:79:13
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-2K77HOHX.js?v=6d7f5ffa:56:13
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-TPYHSINA.js?v=6d7f5ffa:39:15
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-select.js?v=6d7f5ffa:757:13
+    at div
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-2K77HOHX.js?v=6d7f5ffa:79:13
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-2K77HOHX.js?v=6d7f5ffa:56:13
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-TPYHSINA.js?v=6d7f5ffa:39:15
+    at Provider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-OXZDJRWN.js?v=6d7f5ffa:38:15)
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-select.js?v=6d7f5ffa:300:58
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-2K77HOHX.js?v=6d7f5ffa:79:13
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-2K77HOHX.js?v=6d7f5ffa:56:13
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-AXMZZQ2X.js?v=6d7f5ffa:42:13
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-AFLIZ4FI.js?v=6d7f5ffa:260:22
+    at SelectPortal
+    at _c7 (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/components/ui/select.tsx:123:12)
+    at Provider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-OXZDJRWN.js?v=6d7f5ffa:38:15)
+    at Provider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-OXZDJRWN.js?v=6d7f5ffa:38:15)
+    at CollectionProvider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-TPYHSINA.js?v=6d7f5ffa:29:13)
+    at Provider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-OXZDJRWN.js?v=6d7f5ffa:38:15)
+    at Provider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-OXZDJRWN.js?v=6d7f5ffa:38:15)
+    at Popper (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-4XNOAIBL.js?v=6d7f5ffa:1921:11)
+    at Select (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-select.js?v=6d7f5ffa:88:5)
+    at div
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/components/ui/form.tsx:72:6
+    at Controller (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-4BFJKWC4.js?v=6d7f5ffa:298:35)
+    at FormField (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/components/ui/form.tsx:33:6)
+    at div
+    at div
+    at div
+    at form
+    at FormProvider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-4BFJKWC4.js?v=6d7f5ffa:102:11)
+    at GenerateReportForm (https://533bdf96-369a
+chunk-RPCDYKBN.js?v=6d7f5ffa:9129 Uncaught Error: A <Select.Item /> must have a value prop that is not an empty string. This is because the Select value can be set to an empty string to clear the selection and show the placeholder.
+    at @radix-ui_react-sele…s?v=6d7f5ffa:873:13
+    at renderWithHooks (chunk-RPCDYKBN.js?v=6d7f5ffa:11548:26)
+    at updateForwardRef (chunk-RPCDYKBN.js?v=6d7f5ffa:14325:28)
+    at beginWork (chunk-RPCDYKBN.js?v=6d7f5ffa:15946:22)
+    at beginWork$1 (chunk-RPCDYKBN.js?v=6d7f5ffa:19753:22)
+    at performUnitOfWork (chunk-RPCDYKBN.js?v=6d7f5ffa:19198:20)
+    at workLoopSync (chunk-RPCDYKBN.js?v=6d7f5ffa:19137:13)
+    at renderRootSync (chunk-RPCDYKBN.js?v=6d7f5ffa:19116:15)
+    at recoverFromConcurrentError (chunk-RPCDYKBN.js?v=6d7f5ffa:18736:28)
+    at performSyncWorkOnRoot (chunk-RPCDYKBN.js?v=6d7f5ffa:18879:28)
+requests.js:1 
+ GET http://localhost:8000/api/batches 404 (Not Found)
+requests.js:1 
+ GET http://localhost:8000/api/sections 404 (Not Found)
+websocket.ts:69 WebSocket connection closed
+websocket.ts:42 Connecting to WebSocket URL: ws://localhost:8000/ws
+websocket.ts:47 WebSocket connection established
+﻿
+

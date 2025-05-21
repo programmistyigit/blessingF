@@ -1,0 +1,44 @@
+hook.js:608 The above error occurred in the <EmployeesPage> component:
+
+    at EmployeesPage (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/pages/EmployeesPage.tsx:1381:21)
+    at ProtectedComponent (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/App.tsx?t=1746720039532&v=_EggIvVG442xulmR6BSyw:60:42)
+    at div
+    at main
+    at div
+    at Dashboard (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/components/layout/Dashboard.tsx:22:22)
+    at Route (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=6432b216:265:16)
+    at Switch (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=6432b216:321:17)
+    at Router (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/App.tsx?t=1746720039532&v=_EggIvVG442xulmR6BSyw:77:27)
+    at Provider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…unner/workspace/node_modules/.vite/deps/chunk-OXZDJRWN.js?v=6432b216:38:15)
+    at TooltipProvider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…rkspace/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=6432b216:64:5)
+    at QueryClientProvider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…rkspace/node_modules/.vite/deps/@tanstack_react-query.js?v=6432b216:2805:3)
+    at Provider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…/runner/workspace/node_modules/.vite/deps/react-redux.js?v=6432b216:923:11)
+    at App (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/App.tsx?t=1746720039532&v=_EggIvVG442xulmR6BSyw:317:33)
+    at NotificationProvider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/contexts/NotificationContext.tsx?v=_EggIvVG442xulmR6BSyw:42:40)
+    at AuthProvider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/contexts/AuthContext.tsx?v=_EggIvVG442xulmR6BSyw:45:3)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
+overrideMethod	@	hook.js:608
+logCapturedError	@	chunk-RPCDYKBN.js?v=6432b216:14032
+update.callback	@	chunk-RPCDYKBN.js?v=6432b216:14052
+callCallback	@	chunk-RPCDYKBN.js?v=6432b216:11248
+commitUpdateQueue	@	chunk-RPCDYKBN.js?v=6432b216:11265
+commitLayoutEffectOnFiber	@	chunk-RPCDYKBN.js?v=6432b216:17093
+commitLayoutMountEffects_complete	@	chunk-RPCDYKBN.js?v=6432b216:17980
+commitLayoutEffects_begin	@	chunk-RPCDYKBN.js?v=6432b216:17969
+commitLayoutEffects	@	chunk-RPCDYKBN.js?v=6432b216:17920
+commitRootImpl	@	chunk-RPCDYKBN.js?v=6432b216:19353
+commitRoot	@	chunk-RPCDYKBN.js?v=6432b216:19277
+finishConcurrentRender	@	chunk-RPCDYKBN.js?v=6432b216:18760
+performConcurrentWorkOnRoot	@	chunk-RPCDYKBN.js?v=6432b216:18718
+workLoop	@	chunk-RPCDYKBN.js?v=6432b216:197
+flushWork	@	chunk-RPCDYKBN.js?v=6432b216:176
+performWorkUntilDeadline	@	chunk-RPCDYKBN.js?v=6432b216:384
+chunk-RPCDYKBN.js?v=6432b216:19413 Uncaught TypeError: Cannot read properties of undefined (reading 'map')
+    at EmployeesPage (EmployeesPage.tsx:955:23)
+websocket.ts:69 WebSocket connection closed
+websocket.ts:42 Connecting to WebSocket URL: ws://localhost:8000/ws
+websocket.ts:47 WebSocket connection established
+﻿
+

@@ -1,0 +1,154 @@
+Uncaught Error: A <Select.Item /> must have a value prop that is not an empty string. This is because the Select value can be set to an empty string to clear the selection and show the placeholder.
+    at @radix-ui_react-select.js?v=6d7f5ffa:873:13
+    at renderWithHooks (chunk-RPCDYKBN.js?v=6d7f5ffa:11548:26)
+    at updateForwardRef (chunk-RPCDYKBN.js?v=6d7f5ffa:14325:28)
+    at beginWork (chunk-RPCDYKBN.js?v=6d7f5ffa:15946:22)
+    at HTMLUnknownElement.callCallback2 (chunk-RPCDYKBN.js?v=6d7f5ffa:3674:22)
+    at Object.invokeGuardedCallbackDev (chunk-RPCDYKBN.js?v=6d7f5ffa:3699:24)
+    at invokeGuardedCallback (chunk-RPCDYKBN.js?v=6d7f5ffa:3733:39)
+    at beginWork$1 (chunk-RPCDYKBN.js?v=6d7f5ffa:19765:15)
+    at performUnitOfWork (chunk-RPCDYKBN.js?v=6d7f5ffa:19198:20)
+    at workLoopSync (chunk-RPCDYKBN.js?v=6d7f5ffa:19137:13)
+(anonymous) @ @radix-ui_react-select.js?v=6d7f5ffa:873
+renderWithHooks @ chunk-RPCDYKBN.js?v=6d7f5ffa:11548
+updateForwardRef @ chunk-RPCDYKBN.js?v=6d7f5ffa:14325
+beginWork @ chunk-RPCDYKBN.js?v=6d7f5ffa:15946
+callCallback2 @ chunk-RPCDYKBN.js?v=6d7f5ffa:3674
+invokeGuardedCallbackDev @ chunk-RPCDYKBN.js?v=6d7f5ffa:3699
+invokeGuardedCallback @ chunk-RPCDYKBN.js?v=6d7f5ffa:3733
+beginWork$1 @ chunk-RPCDYKBN.js?v=6d7f5ffa:19765
+performUnitOfWork @ chunk-RPCDYKBN.js?v=6d7f5ffa:19198
+workLoopSync @ chunk-RPCDYKBN.js?v=6d7f5ffa:19137
+renderRootSync @ chunk-RPCDYKBN.js?v=6d7f5ffa:19116
+performSyncWorkOnRoot @ chunk-RPCDYKBN.js?v=6d7f5ffa:18874
+flushSyncCallbacks @ chunk-RPCDYKBN.js?v=6d7f5ffa:9119
+(anonymous) @ chunk-RPCDYKBN.js?v=6d7f5ffa:18627Understand this error
+@radix-ui_react-select.js?v=6d7f5ffa:873 Uncaught Error: A <Select.Item /> must have a value prop that is not an empty string. This is because the Select value can be set to an empty string to clear the selection and show the placeholder.
+    at @radix-ui_react-select.js?v=6d7f5ffa:873:13
+    at renderWithHooks (chunk-RPCDYKBN.js?v=6d7f5ffa:11548:26)
+    at updateForwardRef (chunk-RPCDYKBN.js?v=6d7f5ffa:14325:28)
+    at beginWork (chunk-RPCDYKBN.js?v=6d7f5ffa:15946:22)
+    at HTMLUnknownElement.callCallback2 (chunk-RPCDYKBN.js?v=6d7f5ffa:3674:22)
+    at Object.invokeGuardedCallbackDev (chunk-RPCDYKBN.js?v=6d7f5ffa:3699:24)
+    at invokeGuardedCallback (chunk-RPCDYKBN.js?v=6d7f5ffa:3733:39)
+    at beginWork$1 (chunk-RPCDYKBN.js?v=6d7f5ffa:19765:15)
+    at performUnitOfWork (chunk-RPCDYKBN.js?v=6d7f5ffa:19198:20)
+    at workLoopSync (chunk-RPCDYKBN.js?v=6d7f5ffa:19137:13)
+(anonymous) @ @radix-ui_react-select.js?v=6d7f5ffa:873
+renderWithHooks @ chunk-RPCDYKBN.js?v=6d7f5ffa:11548
+updateForwardRef @ chunk-RPCDYKBN.js?v=6d7f5ffa:14325
+beginWork @ chunk-RPCDYKBN.js?v=6d7f5ffa:15946
+callCallback2 @ chunk-RPCDYKBN.js?v=6d7f5ffa:3674
+invokeGuardedCallbackDev @ chunk-RPCDYKBN.js?v=6d7f5ffa:3699
+invokeGuardedCallback @ chunk-RPCDYKBN.js?v=6d7f5ffa:3733
+beginWork$1 @ chunk-RPCDYKBN.js?v=6d7f5ffa:19765
+performUnitOfWork @ chunk-RPCDYKBN.js?v=6d7f5ffa:19198
+workLoopSync @ chunk-RPCDYKBN.js?v=6d7f5ffa:19137
+renderRootSync @ chunk-RPCDYKBN.js?v=6d7f5ffa:19116
+recoverFromConcurrentError @ chunk-RPCDYKBN.js?v=6d7f5ffa:18736
+performSyncWorkOnRoot @ chunk-RPCDYKBN.js?v=6d7f5ffa:18879
+flushSyncCallbacks @ chunk-RPCDYKBN.js?v=6d7f5ffa:9119
+(anonymous) @ chunk-RPCDYKBN.js?v=6d7f5ffa:18627Understand this error
+hook.js:608 The above error occurred in the <SelectItem> component:
+
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-select.js?v=6d7f5ffa:846:7
+    at _c11 (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/components/ui/select.tsx:208:13)
+    at div
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-AXMZZQ2X.js?v=6d7f5ffa:42:13
+    at Provider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-OXZDJRWN.js?v=6d7f5ffa:38:15)
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-select.js?v=6d7f5ffa:826:13
+    at div
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-AXMZZQ2X.js?v=6d7f5ffa:42:13
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-2K77HOHX.js?v=6d7f5ffa:79:13
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-2K77HOHX.js?v=6d7f5ffa:56:13
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-TPYHSINA.js?v=6d7f5ffa:39:15
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-select.js?v=6d7f5ffa:757:13
+    at div
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-2K77HOHX.js?v=6d7f5ffa:79:13
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-2K77HOHX.js?v=6d7f5ffa:56:13
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-TPYHSINA.js?v=6d7f5ffa:39:15
+    at Provider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-OXZDJRWN.js?v=6d7f5ffa:38:15)
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-select.js?v=6d7f5ffa:300:58
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-2K77HOHX.js?v=6d7f5ffa:79:13
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-2K77HOHX.js?v=6d7f5ffa:56:13
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-AXMZZQ2X.js?v=6d7f5ffa:42:13
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-AFLIZ4FI.js?v=6d7f5ffa:260:22
+    at SelectPortal
+    at _c7 (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/components/ui/select.tsx:123:12)
+    at Provider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-OXZDJRWN.js?v=6d7f5ffa:38:15)
+    at Provider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-OXZDJRWN.js?v=6d7f5ffa:38:15)
+    at CollectionProvider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-TPYHSINA.js?v=6d7f5ffa:29:13)
+    at Provider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-OXZDJRWN.js?v=6d7f5ffa:38:15)
+    at Provider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-OXZDJRWN.js?v=6d7f5ffa:38:15)
+    at Popper (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-4XNOAIBL.js?v=6d7f5ffa:1921:11)
+    at Select (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-select.js?v=6d7f5ffa:88:5)
+    at div
+    at div
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-AXMZZQ2X.js?v=6d7f5ffa:42:13
+    at Presence (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-LUE5KDWX.js?v=6d7f5ffa:24:11)
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-tabs.js?v=6d7f5ffa:176:13
+    at _c5 (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/components/ui/tabs.tsx:72:12)
+    at div
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-AXMZZQ2X.js?v=6d7f5ffa:42:13
+    at Provider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-OXZDJRWN.js?v=6d7f5ffa:38:15)
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-tabs.js?v=6d7f5ffa:54:7
+    at div
+    at CanteenPage (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/pages/CanteenPage.tsx:66:21)
+    at ProtectedComponent (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/App.tsx?t=1746617883743&v=BVAS-vGwWgf89edfLKyvJ:58:42)
+    at div
+    at main
+    at div
+    at Dashboard (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/components/layout/Dashboard.tsx:22:22)
+    at Route (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=6d7f5ffa:265:16)
+    at Switch (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=6d7f5ffa:321:17)
+    at Router (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/App.tsx?t=1746617883743&v=BVAS-vGwWgf89edfLKyvJ:75:27)
+    at Provider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-OXZDJRWN.js?v=6d7f5ffa:38:15)
+    at TooltipProvider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=6d7f5ffa:64:5)
+    at QueryClientProvider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@tanstack_react-query.js?v=6d7f5ffa:2805:3)
+    at Provider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/react-redux.js?v=6d7f5ffa:923:11)
+    at App (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/App.tsx?t=1746617883743&v=BVAS-vGwWgf89edfLKyvJ:289:33)
+    at NotificationProvider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/contexts/NotificationContext.tsx?v=BVAS-vGwWgf89edfLKyvJ:42:40)
+    at AuthProvider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/contexts/AuthContext.tsx?v=BVAS-vGwWgf89edfLKyvJ:45:3)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
+overrideMethod @ hook.js:608
+logCapturedError @ chunk-RPCDYKBN.js?v=6d7f5ffa:14032
+update.callback @ chunk-RPCDYKBN.js?v=6d7f5ffa:14052
+callCallback @ chunk-RPCDYKBN.js?v=6d7f5ffa:11248
+commitUpdateQueue @ chunk-RPCDYKBN.js?v=6d7f5ffa:11265
+commitLayoutEffectOnFiber @ chunk-RPCDYKBN.js?v=6d7f5ffa:17093
+commitLayoutMountEffects_complete @ chunk-RPCDYKBN.js?v=6d7f5ffa:17980
+commitLayoutEffects_begin @ chunk-RPCDYKBN.js?v=6d7f5ffa:17969
+commitLayoutEffects @ chunk-RPCDYKBN.js?v=6d7f5ffa:17920
+commitRootImpl @ chunk-RPCDYKBN.js?v=6d7f5ffa:19353
+commitRoot @ chunk-RPCDYKBN.js?v=6d7f5ffa:19277
+performSyncWorkOnRoot @ chunk-RPCDYKBN.js?v=6d7f5ffa:18895
+flushSyncCallbacks @ chunk-RPCDYKBN.js?v=6d7f5ffa:9119
+(anonymous) @ chunk-RPCDYKBN.js?v=6d7f5ffa:18627Understand this error
+chunk-RPCDYKBN.js?v=6d7f5ffa:9129 Uncaught Error: A <Select.Item /> must have a value prop that is not an empty string. This is because the Select value can be set to an empty string to clear the selection and show the placeholder.
+    at @radix-ui_react-select.js?v=6d7f5ffa:873:13
+    at renderWithHooks (chunk-RPCDYKBN.js?v=6d7f5ffa:11548:26)
+    at updateForwardRef (chunk-RPCDYKBN.js?v=6d7f5ffa:14325:28)
+    at beginWork (chunk-RPCDYKBN.js?v=6d7f5ffa:15946:22)
+    at beginWork$1 (chunk-RPCDYKBN.js?v=6d7f5ffa:19753:22)
+    at performUnitOfWork (chunk-RPCDYKBN.js?v=6d7f5ffa:19198:20)
+    at workLoopSync (chunk-RPCDYKBN.js?v=6d7f5ffa:19137:13)
+    at renderRootSync (chunk-RPCDYKBN.js?v=6d7f5ffa:19116:15)
+    at recoverFromConcurrentError (chunk-RPCDYKBN.js?v=6d7f5ffa:18736:28)
+    at performSyncWorkOnRoot (chunk-RPCDYKBN.js?v=6d7f5ffa:18879:28)
+(anonymous) @ @radix-ui_react-select.js?v=6d7f5ffa:873
+renderWithHooks @ chunk-RPCDYKBN.js?v=6d7f5ffa:11548
+updateForwardRef @ chunk-RPCDYKBN.js?v=6d7f5ffa:14325
+beginWork @ chunk-RPCDYKBN.js?v=6d7f5ffa:15946
+beginWork$1 @ chunk-RPCDYKBN.js?v=6d7f5ffa:19753
+performUnitOfWork @ chunk-RPCDYKBN.js?v=6d7f5ffa:19198
+workLoopSync @ chunk-RPCDYKBN.js?v=6d7f5ffa:19137
+renderRootSync @ chunk-RPCDYKBN.js?v=6d7f5ffa:19116
+recoverFromConcurrentError @ chunk-RPCDYKBN.js?v=6d7f5ffa:18736
+performSyncWorkOnRoot @ chunk-RPCDYKBN.js?v=6d7f5ffa:18879
+flushSyncCallbacks @ chunk-RPCDYKBN.js?v=6d7f5ffa:9119
+(anonymous) @ chunk-RPCDYKBN.js?v=6d7f5ffa:18627Understand this error
+websocket.ts:69 WebSocket connection closed
+websocket.ts:42 Connecting to WebSocket URL: ws://localhost:8000/ws
+websocket.ts:47 WebSocket connection established

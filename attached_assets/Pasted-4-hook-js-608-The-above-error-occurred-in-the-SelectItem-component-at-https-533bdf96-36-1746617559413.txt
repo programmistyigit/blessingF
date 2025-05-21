@@ -1,0 +1,85 @@
+4
+hook.js:608 The above error occurred in the <SelectItem> component:
+
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…rkspace/node_modules/.vite/deps/@radix-ui_react-select.js?v=6d7f5ffa:846:7
+    at _c11 (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/components/ui/select.tsx:208:13)
+    at div
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…unner/workspace/node_modules/.vite/deps/chunk-AXMZZQ2X.js?v=6d7f5ffa:42:13
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…unner/workspace/node_modules/.vite/deps/chunk-2K77HOHX.js?v=6d7f5ffa:79:13
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…unner/workspace/node_modules/.vite/deps/chunk-2K77HOHX.js?v=6d7f5ffa:56:13
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…unner/workspace/node_modules/.vite/deps/chunk-TPYHSINA.js?v=6d7f5ffa:39:15
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…kspace/node_modules/.vite/deps/@radix-ui_react-select.js?v=6d7f5ffa:757:13
+    at div
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…unner/workspace/node_modules/.vite/deps/chunk-2K77HOHX.js?v=6d7f5ffa:79:13
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…unner/workspace/node_modules/.vite/deps/chunk-2K77HOHX.js?v=6d7f5ffa:56:13
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…unner/workspace/node_modules/.vite/deps/chunk-TPYHSINA.js?v=6d7f5ffa:39:15
+    at Provider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…unner/workspace/node_modules/.vite/deps/chunk-OXZDJRWN.js?v=6d7f5ffa:38:15)
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…kspace/node_modules/.vite/deps/@radix-ui_react-select.js?v=6d7f5ffa:300:58
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…unner/workspace/node_modules/.vite/deps/chunk-2K77HOHX.js?v=6d7f5ffa:79:13
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…unner/workspace/node_modules/.vite/deps/chunk-2K77HOHX.js?v=6d7f5ffa:56:13
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…unner/workspace/node_modules/.vite/deps/chunk-AXMZZQ2X.js?v=6d7f5ffa:42:13
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…nner/workspace/node_modules/.vite/deps/chunk-AFLIZ4FI.js?v=6d7f5ffa:260:22
+    at SelectPortal
+    at _c7 (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/components/ui/select.tsx:123:12)
+    at Provider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…unner/workspace/node_modules/.vite/deps/chunk-OXZDJRWN.js?v=6d7f5ffa:38:15)
+    at Provider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…unner/workspace/node_modules/.vite/deps/chunk-OXZDJRWN.js?v=6d7f5ffa:38:15)
+    at CollectionProvider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…unner/workspace/node_modules/.vite/deps/chunk-TPYHSINA.js?v=6d7f5ffa:29:13)
+    at Provider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…unner/workspace/node_modules/.vite/deps/chunk-OXZDJRWN.js?v=6d7f5ffa:38:15)
+    at Provider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…unner/workspace/node_modules/.vite/deps/chunk-OXZDJRWN.js?v=6d7f5ffa:38:15)
+    at Popper (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…ner/workspace/node_modules/.vite/deps/chunk-4XNOAIBL.js?v=6d7f5ffa:1921:11)
+    at Select (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…orkspace/node_modules/.vite/deps/@radix-ui_react-select.js?v=6d7f5ffa:88:5)
+    at div
+    at div
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…unner/workspace/node_modules/.vite/deps/chunk-AXMZZQ2X.js?v=6d7f5ffa:42:13
+    at Presence (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…unner/workspace/node_modules/.vite/deps/chunk-LUE5KDWX.js?v=6d7f5ffa:24:11)
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…orkspace/node_modules/.vite/deps/@radix-ui_react-tabs.js?v=6d7f5ffa:176:13
+    at _c5 (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/components/ui/tabs.tsx:72:12)
+    at div
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…unner/workspace/node_modules/.vite/deps/chunk-AXMZZQ2X.js?v=6d7f5ffa:42:13
+    at Provider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…unner/workspace/node_modules/.vite/deps/chunk-OXZDJRWN.js?v=6d7f5ffa:38:15)
+    at https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…/workspace/node_modules/.vite/deps/@radix-ui_react-tabs.js?v=6d7f5ffa:54:7
+    at div
+    at InventoryPage (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/pages/InventoryPage.tsx?t=1746617514854:3651:21)
+    at ProtectedComponent (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/App.tsx?t=1746617514854&v=KCPn_Owf1dIBjxMVuqfOX:58:42)
+    at div
+    at main
+    at div
+    at Dashboard (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/components/layout/Dashboard.tsx:22:22)
+    at Route (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=6d7f5ffa:265:16)
+    at Switch (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=6d7f5ffa:321:17)
+    at Router (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/App.tsx?t=1746617514854&v=KCPn_Owf1dIBjxMVuqfOX:75:27)
+    at Provider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…unner/workspace/node_modules/.vite/deps/chunk-OXZDJRWN.js?v=6d7f5ffa:38:15)
+    at TooltipProvider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…rkspace/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=6d7f5ffa:64:5)
+    at QueryClientProvider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…rkspace/node_modules/.vite/deps/@tanstack_react-query.js?v=6d7f5ffa:2805:3)
+    at Provider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit…/runner/workspace/node_modules/.vite/deps/react-redux.js?v=6d7f5ffa:923:11)
+    at App (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/App.tsx?t=1746617514854&v=KCPn_Owf1dIBjxMVuqfOX:289:33)
+    at NotificationProvider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/contexts/NotificationContext.tsx?v=KCPn_Owf1dIBjxMVuqfOX:42:40)
+    at AuthProvider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/contexts/AuthContext.tsx?v=KCPn_Owf1dIBjxMVuqfOX:45:3)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
+chunk-RPCDYKBN.js?v=6d7f5ffa:9129 Uncaught Error: A <Select.Item /> must have a value prop that is not an empty string. This is because the Select value can be set to an empty string to clear the selection and show the placeholder.
+    at @radix-ui_react-sele…s?v=6d7f5ffa:873:13
+    at renderWithHooks (chunk-RPCDYKBN.js?v=6d7f5ffa:11548:26)
+    at updateForwardRef (chunk-RPCDYKBN.js?v=6d7f5ffa:14325:28)
+    at beginWork (chunk-RPCDYKBN.js?v=6d7f5ffa:15946:22)
+    at beginWork$1 (chunk-RPCDYKBN.js?v=6d7f5ffa:19753:22)
+    at performUnitOfWork (chunk-RPCDYKBN.js?v=6d7f5ffa:19198:20)
+    at workLoopSync (chunk-RPCDYKBN.js?v=6d7f5ffa:19137:13)
+    at renderRootSync (chunk-RPCDYKBN.js?v=6d7f5ffa:19116:15)
+    at recoverFromConcurrentError (chunk-RPCDYKBN.js?v=6d7f5ffa:18736:28)
+    at performSyncWorkOnRoot (chunk-RPCDYKBN.js?v=6d7f5ffa:18879:28)
+websocket.ts:106 WebSocket connection to 'ws://localhost:8000/ws' failed: WebSocket is closed before the connection is established.
+requests.js:1 
+ GET http://localhost:8000/api/inventory?page=1&limit=12 404 (Not Found)
+requests.js:1 
+ GET http://localhost:8000/api/sections 404 (Not Found)
+requests.js:1 
+ GET http://localhost:8000/api/batches 404 (Not Found)
+websocket.ts:65 WebSocket error: 
+Event {isTrusted: true, type: 'error', target: WebSocket, currentTarget: WebSocket, eventPhase: 2, …}
+websocket.ts:69 WebSocket connection closed
+websocket.ts:42 Connecting to WebSocket URL: ws://localhost:8000/ws
+websocket.ts:47 WebSocket connection established
+﻿
+

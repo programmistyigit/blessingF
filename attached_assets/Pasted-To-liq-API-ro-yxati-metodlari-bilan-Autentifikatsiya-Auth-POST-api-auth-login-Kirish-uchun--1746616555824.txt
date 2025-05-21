@@ -1,0 +1,151 @@
+To'liq API ro'yxati (metodlari bilan)
+Autentifikatsiya (Auth)
+POST /api/auth/login - Kirish uchun
+POST /api/auth/verify - Tasdiqlash kodini tekshirish
+GET /api/auth/me - Joriy foydalanuvchini olish
+Foydalanuvchilar (Users)
+GET /api/user - Barcha foydalanuvchilarni olish
+POST /api/user - Yangi foydalanuvchi yaratish
+GET /api/user/profile - Foydalanuvchi profilini olish
+GET /api/user/me - Joriy foydalanuvchi ma'lumotlarini olish
+GET /api/user/manager/:managerId/subordinates - Boshqaruvchining bo'ysunuvchilarini olish
+POST /api/user/assign-worker - Ishchini biriktirishlarini sozlash
+POST /api/user/remove-worker - Ishchi biriktirishini olib tashlash
+GET /api/user/:id - Ma'lum foydalanuvchini olish
+PUT /api/user/:id - Foydalanuvchi ma'lumotlarini yangilash
+Yo'qlama (Attendance)
+POST /api/attendance/tasks - Yo'qlama vazifasini yaratish
+GET /api/attendance/tasks/my - Mening yo'qlama vazifalarimni olish
+GET /api/attendance/tasks/assigned-by-me - Men tayinlagan yo'qlama vazifalarini olish
+PUT /api/attendance/tasks/:taskId/forward - Yo'qlama vazifasini boshqaga o'tkazish
+PUT /api/attendance/tasks/:taskId/complete - Yo'qlama vazifasini bajarilgan deb belgilash
+POST /api/attendance/records - Yo'qlama qaydini yaratish
+GET /api/attendance/users/:userId/records - Foydalanuvchi yo'qlama qaydlarini olish
+GET /api/attendance/users/:userId/date - Foydalanuvchi ma'lum kundagi yo'qlamasini olish
+GET /api/attendance/sections/:sectionId - Sex bo'yicha yo'qlama ma'lumotlarini olish
+GET /api/attendance/stats - Yo'qlama statistikasini olish
+Ishlab chiqarish (Production)
+POST /api/production - Ishlab chiqarish ma'lumotlarini kiritish
+GET /api/production/overview - Ishlab chiqarish umumiy ko'rinishini olish
+GET /api/production/records - Ishlab chiqarish qaydlarini olish
+POST /api/production/start-notifications - Ishlab chiqarish xabarnomalarini boshlash
+Davrlar (Periods)
+POST /api/periods/:periodId/start-tasks - Davr bilan bog'liq vazifalarni boshlash
+Lavozimlar (Positions)
+GET /api/positions/positions - Barcha lavozimlarni olish
+POST /api/positions/positions - Yangi lavozim yaratish
+POST /api/positions/positions/create-defaults - Standart lavozimlarni yaratish
+GET /api/positions/positions/:id - Ma'lum lavozimni olish
+PUT /api/positions/positions/:id - Lavozimni yangilash
+DELETE /api/positions/positions/:id - Lavozimni o'chirish
+PATCH /api/positions/positions/:id/toggle-status - Lavozim statusini o'zgartirish
+GET /api/positions/position-types - Lavozim turlarini olish
+Jadval (Schedule)
+GET /api/schedule - Jadval ma'lumotlarini olish
+Seksiyalar (Sections)
+GET /api/sections/:sectionId/tasks - Seksiyadagi vazifalarni olish
+So'yish (Slaughter)
+POST /api/slaughter-batches - Yangi so'yish partiyasini yaratish
+GET /api/slaughter-batches - So'yish partiyalarini olish
+PUT /api/slaughter-batches/:id - So'yish partiyasini yangilash
+GET /api/slaughter-batches/:id - Ma'lum so'yish partiyasini olish
+PUT /api/slaughter-batches/:id/complete - So'yish partiyasini tugallash
+GET /api/slaughter-recommendations - So'yish tavsiyalarini olish
+POST /api/slaughter-plan - So'yish rejasini yaratish
+Sog'liq qaydlari (Health Records)
+GET /api/health-records - Sog'liq qaydlarini olish
+Inventar (Inventory)
+GET /api/inventory/items - Barcha inventar elementlarini olish
+POST /api/inventory/items - Yangi inventar elementi qo'shish
+GET /api/inventory/items/:id - Ma'lum inventar elementini olish
+PUT /api/inventory/items/:id - Inventar elementini yangilash
+DELETE /api/inventory/items/:id - Inventar elementini o'chirish
+GET /api/inventory/transactions - Inventar operatsiyalarini olish
+POST /api/inventory/transactions - Yangi inventar operatsiyasini qo'shish
+GET /api/inventory/low-stock - Kam qolgan inventarni olish
+GET /api/inventory/near-expiry - Muddati yaqinlashgan inventarni olish
+GET /api/inventory/period/:periodId/usage - Davr bo'yicha inventar sarfini olish
+GET /api/inventory/batch/:batchId/usage - Partiya bo'yicha inventar sarfini olish
+GET /api/inventory/section/:sectionId/usage - Seksiya bo'yicha inventar sarfini olish
+GET /api/inventory/enums - Inventar enum (sanab o'tiladigan) qiymatlarini olish
+Hisobotlar (Reports)
+POST /api/reports - Yangi hisobot yaratish
+GET /api/reports - Barcha hisobotlarni olish
+POST /api/reports/generate - Hisobot generatsiya qilish
+POST /api/reports/generate-excel - Excel hisobot generatsiya qilish
+GET /api/reports/stats - Hisobot statistikasini olish
+POST /api/reports/section/:sectionId - Seksiya hisobotini yaratish
+POST /api/reports/compare-periods - Davrlarni solishtirish hisoboti
+POST /api/reports/compare-sections - Seksiyalarni solishtirish hisoboti
+POST /api/reports/period/:periodId - Davr hisobotini yaratish
+POST /api/reports/batch/:batchId - Partiya hisobotini yaratish
+GET /api/reports/available-fields - Mavjud hisobot maydonlarini olish
+POST /api/reports/templates - Yangi hisobot shablonini yaratish
+GET /api/reports/templates - Hisobot shablonlarini olish
+GET /api/reports/download/:reportId - Hisobotni yuklab olish
+GET /api/reports/latest - Oxirgi hisobotlarni olish
+GET /api/reports/:id - Ma'lum hisobotni olish
+PUT /api/reports/:id - Hisobotni yangilash
+DELETE /api/reports/:id - Hisobotni o'chirish
+Material So'rovlari (Material Requests)
+POST /api/material-requests - Yangi material so'rovi yaratish
+GET /api/material-requests - Material so'rovlarini olish
+GET /api/material-requests/pending-approval - Tasdiqlanishi kutilayotgan so'rovlarni olish
+PUT /api/material-requests/:id - Material so'rovini yangilash
+GET /api/material-requests/:id - Ma'lum material so'rovini olish
+POST /api/material-requests/:id/comments - Material so'roviga izoh qo'shish
+GET /api/material-requests/:id/comments - Material so'rovi izohlarini olish
+Go'sht Savdosi (Meat Sales)
+POST /api/meat-sales - Yangi go'sht savdosi qaydini yaratish
+GET /api/meat-sales - Go'sht savdosi qaydlarini olish
+Ozuqa (Feed)
+POST /api/feed - Ozuqa ma'lumotlarini kiritish
+GET /api/feed/transactions - Ozuqa operatsiyalarini olish
+GET /api/feed/inventory - Ozuqa inventarini olish
+Vazifalar (Tasks)
+POST /api/tasks - Yangi vazifa yaratish
+GET /api/tasks - Barcha vazifalarni olish
+GET /api/tasks/my - Mening vazifalarimni olish
+GET /api/tasks/overdue - Muddati o'tgan vazifalarni olish
+PUT /api/tasks/:id - Vazifani yangilash
+GET /api/tasks/:id - Ma'lum vazifani olish
+POST /api/tasks/:id/status - Vazifa statusini o'zgartirish
+Partiyalar (Batches)
+GET /api/batches/:batchId/tasks - Partiya vazifalarini olish
+GET /api/batches/:batchId/check-slaughter-readiness - Partiyaning so'yishga tayyorligini tekshirish
+Oshxona (Canteen)
+POST /api/canteen/meal-suggestions - Taom taklifi yaratish
+GET /api/canteen/meal-suggestions - Taom takliflarini olish
+GET /api/canteen/meal-suggestions/:id - Ma'lum taom taklifini olish
+POST /api/canteen/meal-suggestions/:id/vote - Taom taklifiga ovoz berish
+POST /api/canteen/meal-suggestions/:id/comments - Taom taklifiga izoh qo'shish
+POST /api/canteen/meal-suggestions/:id/approve - Taom taklifini tasdiqlash
+GET /api/canteen/menu-items - Menyu elementlarini olish
+POST /api/canteen/menu-items - Yangi menyu elementi qo'shish
+GET /api/canteen/menu-items/:id - Ma'lum menyu elementini olish
+PUT /api/canteen/menu-items/:id - Menyu elementini yangilash
+DELETE /api/canteen/menu-items/:id - Menyu elementini o'chirish
+GET /api/canteen/daily-menu - Kunlik menyuni olish
+POST /api/canteen/daily-menu - Yangi kunlik menyu yaratish
+PUT /api/canteen/daily-menu/:id - Kunlik menyuni yangilash
+DELETE /api/canteen/daily-menu/:id - Kunlik menyuni o'chirish
+GET /api/canteen/assigned-menu - Tayinlangan menyuni olish
+POST /api/canteen/assigned-menu - Menyuni tayinlash
+GET /api/canteen/ingredients - Ingredientlarni olish
+POST /api/canteen/ingredients - Yangi ingredient qo'shish
+GET /api/canteen/ingredients/:id - Ma'lum ingredientni olish
+PUT /api/canteen/ingredients/:id - Ingredientni yangilash
+GET /api/canteen/transactions - Oshxona operatsiyalarini olish
+POST /api/canteen/transactions - Yangi oshxona operatsiyasi yaratish
+GET /api/canteen/low-stock - Kam qolgan oshxona inventarini olish
+GET /api/canteen/stats/daily - Kunlik oshxona statistikasini olish
+GET /api/canteen/stats/monthly - Oylik oshxona statistikasini olish
+POST /api/canteen/send-low-stock-alerts - Kam qolgan oshxona inventari haqida ogohlantirish yuborish
+GET /api/canteen/enums - Oshxona enum qiymatlarini olish
+WebSocket
+POST /api/ws-broadcast - WebSocket orqali xabar yuborish
+GET /wstest - WebSocket test endpointi
+Tizim
+GET /health - Tizim holati tekshiruvi
+Xavfsizlik
+OPTIONS * - CORS so'rovlarini qo'llab-quvvatlash

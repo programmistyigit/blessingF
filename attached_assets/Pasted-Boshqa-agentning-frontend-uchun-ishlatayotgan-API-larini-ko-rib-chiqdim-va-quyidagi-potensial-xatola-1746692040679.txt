@@ -1,0 +1,29 @@
+Boshqa agentning frontend uchun ishlatayotgan API'larini ko'rib chiqdim va quyidagi potensial xatolarni topdim:
+
+1. Autentifikatsiya API'lari bo'yicha xatolar:
+URL prefix xatoligi: POST /login emas, balki to'g'ri versiyasi POST /api/auth/login bo'lishi kerak.
+Token formatidagi xatolik: Authentication headerlarni Authorization: Bearer JWT_TOKEN_HERE formatida yuborish kerak.
+2. Dashboard API'lari bo'yicha xatolar:
+Endpoint yo'li xatoligi: /api/dashboard/stats o'rniga /api/stats qilib yuborilgan.
+Noto'g'ri parametrlar: period, startDate, endDate parametrlari bir-biriga zid bo'lmasligi kerak.
+3. Foydalanuvchilar API'lari:
+Role parameterida xatolik: role parametri aniq enum qiymatlaridan biri bo'lishi kerak (owner, manager, worker, vet, va h.k.)
+Noto'g'ri sahifalash: page parametri 0 dan emas, 1 dan boshlanadi.
+4. Go'sht ishlab chiqarish API'lari:
+URL xatoligi: /api/meat-products va /api/meat-sales emas, balki /api/meat/products va /api/meat/sales bo'lishi kerak.
+Noto'g'ri format: Go'sht sotish ma'lumotlari formatida asosiy qismlar tushib qolgan.
+5. Vazifalar API'lari:
+PATCH so'rovi xatoligi: Vazifa holatini o'zgartirish uchun /api/tasks/{id}/status emas, /api/tasks/{id} ga PATCH metodi bilan so'rov yuborish kerak.
+Status enum xatoligi: Status qiymatlari tizimda mavjud bo'lgan (pending, in_progress, completed, cancelled) qiymatlaridan biri bo'lishi kerak.
+6. Davomat API'lari:
+Format xatoligi: Davomat qo'shishda yoki yangilashda noto'g'ri format ishlatilgan.
+Noto'g'ri parameter: employee parametri o'rniga userId ishlatilishi kerak.
+7. Xabarnomalar API'lari:
+Endpoint xatoligi: /api/notifications/{id}/read emas, /api/notifications/{id} ga PATCH bilan so'rov yuborish kerak.
+Body formatida xatolik: { "read": true } formatida yuborish kerak.
+8. Umumiy xatolar:
+Content-Type xatoligi: Barcha POST/PUT/PATCH so'rovlarida Content-Type: application/json header qo'yilmagan.
+JWT token xatoligi: Authentication headerlarda JWT tokenni to'g'ri formatda yuborilmagan.
+Noto'g'ri sahifalash logikasi: limit va page parametrlarni to'g'ri ishlatmaslik.
+URL yo'lida xatolik: API URL'lari /api prefiksini o'z ichiga olishi kerak.
+Frontend ishlab chiquvchiga ushbu xatoliklarni tuzatishni maslahat bering. Backend bilan to'g'ri ishlash uchun, avvalo Swagger/OpenAPI dokumentatsiyasini ko'rib chiqishi yoki bevosita API endpointlarining to'g'ri yo'llarini aniqlab olishi kerak.

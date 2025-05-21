@@ -1,0 +1,55 @@
+GET http://localhost:8000/api/users?isActive=true&page=1&limit=10 404 (Not Found)
+s.fetch @ requests.js:1
+(anonymous) @ traffic.js:1
+fetch @ traffic.js:1
+getAllEmployees @ EmployeeService.ts:162
+fetchEmployees @ EmployeesPage.tsx:757
+(anonymous) @ EmployeesPage.tsx:790
+commitHookEffectListMount @ chunk-RPCDYKBN.js?v=6432b216:16915
+commitPassiveMountOnFiber @ chunk-RPCDYKBN.js?v=6432b216:18156
+commitPassiveMountEffects_complete @ chunk-RPCDYKBN.js?v=6432b216:18129
+commitPassiveMountEffects_begin @ chunk-RPCDYKBN.js?v=6432b216:18119
+commitPassiveMountEffects @ chunk-RPCDYKBN.js?v=6432b216:18109
+flushPassiveEffectsImpl @ chunk-RPCDYKBN.js?v=6432b216:19490
+flushPassiveEffects @ chunk-RPCDYKBN.js?v=6432b216:19447
+performSyncWorkOnRoot @ chunk-RPCDYKBN.js?v=6432b216:18868
+flushSyncCallbacks @ chunk-RPCDYKBN.js?v=6432b216:9119
+commitRootImpl @ chunk-RPCDYKBN.js?v=6432b216:19432
+commitRoot @ chunk-RPCDYKBN.js?v=6432b216:19277
+finishConcurrentRender @ chunk-RPCDYKBN.js?v=6432b216:18805
+performConcurrentWorkOnRoot @ chunk-RPCDYKBN.js?v=6432b216:18718
+workLoop @ chunk-RPCDYKBN.js?v=6432b216:197
+flushWork @ chunk-RPCDYKBN.js?v=6432b216:176
+performWorkUntilDeadline @ chunk-RPCDYKBN.js?v=6432b216:384Understand this error
+requests.js:1 
+            
+            
+           GET http://localhost:8000/api/sections 404 (Not Found)
+s.fetch @ requests.js:1
+(anonymous) @ traffic.js:1
+fetch @ traffic.js:1
+request @ SectionService.ts:53
+getAllSections @ SectionService.ts:65
+fetchPositionsAndSections @ EmployeesPage.tsx:775
+(anonymous) @ EmployeesPage.tsx:808
+commitHookEffectListMount @ chunk-RPCDYKBN.js?v=6432b216:16915
+commitPassiveMountOnFiber @ chunk-RPCDYKBN.js?v=6432b216:18156
+commitPassiveMountEffects_complete @ chunk-RPCDYKBN.js?v=6432b216:18129
+commitPassiveMountEffects_begin @ chunk-RPCDYKBN.js?v=6432b216:18119
+commitPassiveMountEffects @ chunk-RPCDYKBN.js?v=6432b216:18109
+flushPassiveEffectsImpl @ chunk-RPCDYKBN.js?v=6432b216:19490
+flushPassiveEffects @ chunk-RPCDYKBN.js?v=6432b216:19447
+performSyncWorkOnRoot @ chunk-RPCDYKBN.js?v=6432b216:18868
+flushSyncCallbacks @ chunk-RPCDYKBN.js?v=6432b216:9119
+commitRootImpl @ chunk-RPCDYKBN.js?v=6432b216:19432
+commitRoot @ chunk-RPCDYKBN.js?v=6432b216:19277
+finishConcurrentRender @ chunk-RPCDYKBN.js?v=6432b216:18805
+performConcurrentWorkOnRoot @ chunk-RPCDYKBN.js?v=6432b216:18718
+workLoop @ chunk-RPCDYKBN.js?v=6432b216:197
+flushWork @ chunk-RPCDYKBN.js?v=6432b216:176
+performWorkUntilDeadline @ chunk-RPCDYKBN.js?v=6432b216:384Understand this error
+websocket.ts:47 WebSocket connection established
+requests.js:1 
+            
+            
+           GET http://localhost:8000/api/users?isActive=true&page=1&limit=10 404 (Not Found)

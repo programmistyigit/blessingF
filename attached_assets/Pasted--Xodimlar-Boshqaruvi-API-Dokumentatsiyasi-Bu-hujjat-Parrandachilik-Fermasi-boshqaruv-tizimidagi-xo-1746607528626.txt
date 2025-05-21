@@ -1,0 +1,866 @@
+# Xodimlar Boshqaruvi API Dokumentatsiyasi
+
+Bu hujjat Parrandachilik Fermasi boshqaruv tizimidagi xodimlar boshqaruvi modulini batafsil tavsiflaydi. Barcha API endpointlar, so'rov va javob formatlari, huquqlar va ruxsatlar haqida to'liq ma'lumotlar berilgan.
+
+## 1. Umumiy Ma'lumot
+
+- **Asosiy URL**: `https://[domain]/api`
+- **Autentifikatsiya**: JWT token orqali. Token har bir so'rovda HTTP sarlavhasida `Authorization: Bearer [token]` formatida yuborilishi kerak.
+- **So'rov va javob formati**: JSON
+
+## 2. Asosiy Tushunchalar
+
+### 2.1 Foydalanuvchi Rollari
+
+Tizimda quyidagi asosiy rollar mavjud:
+
+- `owner`: Ferma egasi (eng yuqori huquqlarga ega)
+- `boss`: Bo'lim boshlig'i (bo'lim uchun to'liq boshqaruv)
+- `manager`: Menejer (bo'lim ichidagi ma'lum bir soha)
+- `worker`: Oddiy ishchi
+- `veterinarian`: Veterinar
+- `cook`: Oshpaz
+
+### 2.2 Foydalanuvchi Holati
+
+- `isActive: true` - Faol foydalanuvchi
+- `isActive: false` - Faol emas (tizimga kirish huquqi yo'q)
+
+### 2.3 Lavozimlar Tizimi
+
+Tizimda dinamik lavozimlar yaratish va ularni rollarga biriktirish imkoniyati mavjud. Lavozimlar huquqlar to'plamini o'z ichiga oladi.
+
+## 3. API Endpointlari
+
+### 3.1 Barcha Foydalanuvchilarni Olish
+
+- **URL**: `/api/users`
+- **Method**: `GET`
+- **Auth**: Talab qilinadi (boss, manager rollari)
+- **Vazifa**: Tizimda ro'yxatdan o'tgan barcha foydalanuvchilarni olish
+
+**So'rov parametrlari (Query Parameters):**
+- `role`: Rol bo'yicha filtrlash (masalan: `worker`, `manager`)
+- `section`: Sex ID si bo'yicha filtrlash
+- `isActive`: Holat bo'yicha filtrlash (`true` yoki `false`)
+- `query`: Qidirish (ism yoki telefon raqami bo'yicha)
+- `page`: Sahifa raqami (default: 1)
+- `limit`: Bir sahifadagi maksimal foydalanuvchilar soni (default: 10)
+
+**Javob (Response):**
+```json
+{
+  "success": true,
+  "total": 45,
+  "page": 1,
+  "limit": 10,
+  "users": [
+    {
+      "id": "60d21b4667d0d8992e610c85",
+      "name": "Alisher Zokirov",
+      "phoneNumber": "+998901234567",
+      "role": "boss",
+      "section": {
+        "id": "60d21b4667d0d8992e610c87",
+        "name": "Tovuq parvarish bo'limi"
+      },
+      "position": {
+        "id": "60d21b4667d0d8992e610c90",
+        "name": "Bo'lim boshlig'i"
+      },
+      "isActive": true,
+      "createdAt": "2023-06-19T12:00:00.000Z",
+      "updatedAt": "2023-06-19T12:00:00.000Z"
+    },
+    // Boshqa foydalanuvchilar...
+  ]
+}
+```
+
+### 3.2 Bitta Foydalanuvchini Olish
+
+- **URL**: `/api/users/:id`
+- **Method**: `GET`
+- **Auth**: Talab qilinadi
+- **Vazifa**: ID bo'yicha bitta foydalanuvchi ma'lumotlarini olish
+
+**Javob (Response):**
+```json
+{
+  "success": true,
+  "user": {
+    "id": "60d21b4667d0d8992e610c85",
+    "name": "Alisher Zokirov",
+    "phoneNumber": "+998901234567",
+    "role": "boss",
+    "position": {
+      "id": "60d21b4667d0d8992e610c90",
+      "name": "Bo'lim boshlig'i",
+      "permissions": ["manage_users", "manage_tasks", "view_reports"]
+    },
+    "sections": [
+      {
+        "id": "60d21b4667d0d8992e610c87",
+        "name": "Tovuq parvarish bo'limi"
+      }
+    ],
+    "subordinates": [
+      {
+        "id": "60d21b4667d0d8992e610c86",
+        "name": "Farhod Karimov",
+        "role": "manager"
+      }
+    ],
+    "supervisor": null,
+    "isActive": true,
+    "createdAt": "2023-06-19T12:00:00.000Z",
+    "updatedAt": "2023-06-19T12:00:00.000Z"
+  }
+}
+```
+
+### 3.3 Joriy Foydalanuvchi Ma'lumotlarini Olish
+
+- **URL**: `/api/users/me`
+- **Method**: `GET`
+- **Auth**: Talab qilinadi
+- **Vazifa**: Joriy foydalanuvchi (token egasi) ma'lumotlarini olish
+
+**Javob (Response):**
+```json
+{
+  "success": true,
+  "user": {
+    "id": "60d21b4667d0d8992e610c85",
+    "name": "Alisher Zokirov",
+    "phoneNumber": "+998901234567",
+    "role": "boss",
+    "position": {
+      "id": "60d21b4667d0d8992e610c90",
+      "name": "Bo'lim boshlig'i",
+      "permissions": ["manage_users", "manage_tasks", "view_reports"]
+    },
+    "sections": [
+      {
+        "id": "60d21b4667d0d8992e610c87",
+        "name": "Tovuq parvarish bo'limi"
+      }
+    ],
+    "subordinates": [
+      {
+        "id": "60d21b4667d0d8992e610c86",
+        "name": "Farhod Karimov",
+        "role": "manager"
+      }
+    ],
+    "supervisor": null,
+    "isActive": true,
+    "createdAt": "2023-06-19T12:00:00.000Z",
+    "updatedAt": "2023-06-19T12:00:00.000Z"
+  }
+}
+```
+
+### 3.4 Yangi Foydalanuvchi Yaratish
+
+- **URL**: `/api/users`
+- **Method**: `POST`
+- **Auth**: Talab qilinadi (boss roli)
+- **Vazifa**: Tizimda yangi foydalanuvchi yaratish
+
+**So'rov (Request):**
+```json
+{
+  "name": "Zokir Hamidov",
+  "phoneNumber": "+998901234568",
+  "role": "worker",
+  "positionId": "60d21b4667d0d8992e610c95",
+  "sections": ["60d21b4667d0d8992e610c87"],
+  "isActive": true
+}
+```
+
+**Javob (Response):**
+```json
+{
+  "success": true,
+  "message": "Foydalanuvchi muvaffaqiyatli yaratildi",
+  "user": {
+    "id": "60d21b4667d0d8992e610c88",
+    "name": "Zokir Hamidov",
+    "phoneNumber": "+998901234568",
+    "role": "worker",
+    "position": {
+      "id": "60d21b4667d0d8992e610c95",
+      "name": "Tovuq parvarish ishchisi"
+    },
+    "sections": [
+      {
+        "id": "60d21b4667d0d8992e610c87",
+        "name": "Tovuq parvarish bo'limi"
+      }
+    ],
+    "isActive": true,
+    "createdAt": "2023-06-19T14:00:00.000Z",
+    "updatedAt": "2023-06-19T14:00:00.000Z"
+  }
+}
+```
+
+### 3.5 Foydalanuvchini Yangilash
+
+- **URL**: `/api/users/:id`
+- **Method**: `PUT`
+- **Auth**: Talab qilinadi (boss roli)
+- **Vazifa**: Mavjud foydalanuvchi ma'lumotlarini yangilash
+
+**So'rov (Request):**
+```json
+{
+  "name": "Zokir Salimov",
+  "positionId": "60d21b4667d0d8992e610c96",
+  "sections": ["60d21b4667d0d8992e610c88"],
+  "isActive": true
+}
+```
+
+**Javob (Response):**
+```json
+{
+  "success": true,
+  "message": "Foydalanuvchi ma'lumotlari muvaffaqiyatli yangilandi",
+  "user": {
+    "id": "60d21b4667d0d8992e610c88",
+    "name": "Zokir Salimov",
+    "phoneNumber": "+998901234568",
+    "role": "worker",
+    "position": {
+      "id": "60d21b4667d0d8992e610c96",
+      "name": "Katta tovuq parvarish ishchisi"
+    },
+    "sections": [
+      {
+        "id": "60d21b4667d0d8992e610c88",
+        "name": "2-Tovuq parvarish bo'limi"
+      }
+    ],
+    "isActive": true,
+    "updatedAt": "2023-06-19T15:00:00.000Z"
+  }
+}
+```
+
+### 3.6 Foydalanuvchini O'chirish
+
+- **URL**: `/api/users/:id`
+- **Method**: `DELETE`
+- **Auth**: Talab qilinadi (boss roli)
+- **Vazifa**: Foydalanuvchini o'chirish (amalda faolligini o'chirish)
+
+**Javob (Response):**
+```json
+{
+  "success": true,
+  "message": "Foydalanuvchi muvaffaqiyatli o'chirildi",
+  "user": {
+    "id": "60d21b4667d0d8992e610c88",
+    "isActive": false,
+    "updatedAt": "2023-06-19T16:00:00.000Z"
+  }
+}
+```
+
+### 3.7 Ishchini Menejerga Biriktirish
+
+- **URL**: `/api/users/assign-worker`
+- **Method**: `POST`
+- **Auth**: Talab qilinadi (boss roli)
+- **Vazifa**: Ishchini muayyan menejerga biriktirish
+
+**So'rov (Request):**
+```json
+{
+  "workerId": "60d21b4667d0d8992e610c88",
+  "managerId": "60d21b4667d0d8992e610c86"
+}
+```
+
+**Javob (Response):**
+```json
+{
+  "success": true,
+  "message": "Ishchi menejerga muvaffaqiyatli biriktirildi",
+  "data": {
+    "worker": {
+      "id": "60d21b4667d0d8992e610c88",
+      "name": "Zokir Salimov",
+      "role": "worker",
+      "supervisor": {
+        "id": "60d21b4667d0d8992e610c86",
+        "name": "Farhod Karimov"
+      }
+    }
+  }
+}
+```
+
+### 3.8 Ishchini Menejerdan Chiqarish
+
+- **URL**: `/api/users/remove-worker`
+- **Method**: `POST`
+- **Auth**: Talab qilinadi (boss roli)
+- **Vazifa**: Ishchini muayyan menejerdan chiqarish
+
+**So'rov (Request):**
+```json
+{
+  "workerId": "60d21b4667d0d8992e610c88",
+  "managerId": "60d21b4667d0d8992e610c86"
+}
+```
+
+**Javob (Response):**
+```json
+{
+  "success": true,
+  "message": "Ishchi menejerdan muvaffaqiyatli chiqarildi",
+  "data": {
+    "worker": {
+      "id": "60d21b4667d0d8992e610c88",
+      "name": "Zokir Salimov",
+      "role": "worker",
+      "supervisor": null
+    }
+  }
+}
+```
+
+### 3.9 Menejerga Tegishli Ishchilarni Olish
+
+- **URL**: `/api/users/manager/:managerId/subordinates`
+- **Method**: `GET`
+- **Auth**: Talab qilinadi (boss roli yoki o'zi)
+- **Vazifa**: Muayyan menegerga bo'ysunuvchi ishchilar ro'yxatini olish
+
+**Javob (Response):**
+```json
+{
+  "success": true,
+  "data": {
+    "managerId": "60d21b4667d0d8992e610c86",
+    "subordinates": [
+      {
+        "id": "60d21b4667d0d8992e610c88",
+        "name": "Zokir Salimov",
+        "phoneNumber": "+998901234568",
+        "role": "worker",
+        "position": "Tovuq parvarish ishchisi",
+        "isActive": true
+      },
+      // Boshqa ishchilar...
+    ],
+    "total": 8
+  }
+}
+```
+
+### 3.10 Foydalanuvchiga Bir Nechta Sexlarni Biriktirish
+
+- **URL**: `/api/users/:id/assign-sections`
+- **Method**: `POST`
+- **Auth**: Talab qilinadi (boss roli)
+- **Vazifa**: Foydalanuvchiga bir nechta sexlarni biriktirish
+
+**So'rov (Request):**
+```json
+{
+  "sections": ["60d21b4667d0d8992e610c87", "60d21b4667d0d8992e610c89"]
+}
+```
+
+**Javob (Response):**
+```json
+{
+  "success": true,
+  "message": "Foydalanuvchiga sexlar muvaffaqiyatli biriktirildi",
+  "data": {
+    "user": {
+      "id": "60d21b4667d0d8992e610c88",
+      "name": "Zokir Salimov",
+      "sections": [
+        {
+          "id": "60d21b4667d0d8992e610c87",
+          "name": "Tovuq parvarish bo'limi"
+        },
+        {
+          "id": "60d21b4667d0d8992e610c89",
+          "name": "Inkubatsiya bo'limi"
+        }
+      ]
+    }
+  }
+}
+```
+
+## 4. Lavozimlar Boshqaruvi API
+
+### 4.1. Barcha Lavozimlarni Olish
+
+- **URL**: `/api/positions`
+- **Method**: `GET`
+- **Auth**: Talab qilinadi (boss roli)
+- **Vazifa**: Barcha mavjud lavozimlarni olish
+
+**Javob (Response):**
+```json
+{
+  "success": true,
+  "positions": [
+    {
+      "id": "60d21b4667d0d8992e610c90",
+      "name": "Bo'lim boshlig'i",
+      "type": "management",
+      "permissions": ["manage_users", "manage_tasks", "view_reports", "edit_reports"],
+      "createdAt": "2023-06-19T12:00:00.000Z",
+      "updatedAt": "2023-06-19T12:00:00.000Z"
+    },
+    {
+      "id": "60d21b4667d0d8992e610c95",
+      "name": "Tovuq parvarish ishchisi",
+      "type": "worker",
+      "permissions": ["view_tasks", "update_task_status"],
+      "createdAt": "2023-06-19T12:00:00.000Z",
+      "updatedAt": "2023-06-19T12:00:00.000Z"
+    },
+    // Boshqa lavozimlar...
+  ]
+}
+```
+
+### 4.2. Yangi Lavozim Yaratish
+
+- **URL**: `/api/positions`
+- **Method**: `POST`
+- **Auth**: Talab qilinadi (boss roli)
+- **Vazifa**: Yangi lavozim yaratish
+
+**So'rov (Request):**
+```json
+{
+  "name": "Vaksinatsiya mutaxassisi",
+  "type": "specialist",
+  "permissions": ["view_tasks", "update_task_status", "view_reports", "view_vaccines"]
+}
+```
+
+**Javob (Response):**
+```json
+{
+  "success": true,
+  "message": "Lavozim muvaffaqiyatli yaratildi",
+  "position": {
+    "id": "60d21b4667d0d8992e610c98",
+    "name": "Vaksinatsiya mutaxassisi",
+    "type": "specialist",
+    "permissions": ["view_tasks", "update_task_status", "view_reports", "view_vaccines"],
+    "createdAt": "2023-06-19T17:00:00.000Z",
+    "updatedAt": "2023-06-19T17:00:00.000Z"
+  }
+}
+```
+
+### 4.3. Lavozimni Yangilash
+
+- **URL**: `/api/positions/:id`
+- **Method**: `PUT`
+- **Auth**: Talab qilinadi (boss roli)
+- **Vazifa**: Mavjud lavozimni yangilash
+
+**So'rov (Request):**
+```json
+{
+  "name": "Vaksinatsiya bosh mutaxassisi",
+  "permissions": ["view_tasks", "update_task_status", "view_reports", "view_vaccines", "manage_vaccines"]
+}
+```
+
+**Javob (Response):**
+```json
+{
+  "success": true,
+  "message": "Lavozim muvaffaqiyatli yangilandi",
+  "position": {
+    "id": "60d21b4667d0d8992e610c98",
+    "name": "Vaksinatsiya bosh mutaxassisi",
+    "type": "specialist",
+    "permissions": ["view_tasks", "update_task_status", "view_reports", "view_vaccines", "manage_vaccines"],
+    "updatedAt": "2023-06-19T18:00:00.000Z"
+  }
+}
+```
+
+### 4.4. Lavozimni O'chirish
+
+- **URL**: `/api/positions/:id`
+- **Method**: `DELETE`
+- **Auth**: Talab qilinadi (boss roli)
+- **Vazifa**: Lavozimni o'chirish
+
+**Javob (Response):**
+```json
+{
+  "success": true,
+  "message": "Lavozim muvaffaqiyatli o'chirildi"
+}
+```
+
+## 5. Yo'qlama (Attendance) API
+
+### 5.1. Yo'qlama Vazifasini Yaratish
+
+- **URL**: `/api/attendance/tasks`
+- **Method**: `POST`
+- **Auth**: Talab qilinadi (boss, manager rollari)
+- **Vazifa**: Yo'qlama vazifasi yaratish (boshqa xodimga topshirish)
+
+**So'rov (Request):**
+```json
+{
+  "assignedTo": "60d21b4667d0d8992e610c86",
+  "section": "60d21b4667d0d8992e610c87",
+  "date": "2023-06-20T08:00:00.000Z",
+  "notes": "3-sex ishchilari yo'qlamasini olish"
+}
+```
+
+**Javob (Response):**
+```json
+{
+  "success": true,
+  "message": "Yo'qlama vazifasi muvaffaqiyatli yaratildi",
+  "task": {
+    "id": "60d21b4667d0d8992e610d10",
+    "assignedTo": {
+      "id": "60d21b4667d0d8992e610c86",
+      "name": "Farhod Karimov"
+    },
+    "assignedBy": {
+      "id": "60d21b4667d0d8992e610c85",
+      "name": "Alisher Zokirov"
+    },
+    "section": {
+      "id": "60d21b4667d0d8992e610c87",
+      "name": "Tovuq parvarish bo'limi"
+    },
+    "date": "2023-06-20T08:00:00.000Z",
+    "isCompleted": false,
+    "notes": "3-sex ishchilari yo'qlamasini olish",
+    "createdAt": "2023-06-19T19:00:00.000Z",
+    "updatedAt": "2023-06-19T19:00:00.000Z"
+  }
+}
+```
+
+### 5.2. Yo'qlama Vazifasini Bajarilgan Deb Belgilash
+
+- **URL**: `/api/attendance/tasks/:id/complete`
+- **Method**: `POST`
+- **Auth**: Talab qilinadi
+- **Vazifa**: Yo'qlama vazifasini bajarilgan deb belgilash
+
+**So'rov (Request):**
+```json
+{
+  "notes": "Yo'qlama muvaffaqiyatli o'tkazildi"
+}
+```
+
+**Javob (Response):**
+```json
+{
+  "success": true,
+  "message": "Yo'qlama vazifasi bajarilgan deb belgilandi",
+  "task": {
+    "id": "60d21b4667d0d8992e610d10",
+    "isCompleted": true,
+    "completedAt": "2023-06-20T09:30:00.000Z",
+    "notes": "Yo'qlama muvaffaqiyatli o'tkazildi",
+    "updatedAt": "2023-06-20T09:30:00.000Z"
+  }
+}
+```
+
+### 5.3. Yo'qlama Qaydini Yaratish
+
+- **URL**: `/api/attendance/records`
+- **Method**: `POST`
+- **Auth**: Talab qilinadi
+- **Vazifa**: Xodimning yo'qlama qaydini yaratish
+
+**So'rov (Request):**
+```json
+{
+  "user": "60d21b4667d0d8992e610c88",
+  "date": "2023-06-20T08:00:00.000Z",
+  "status": "present",
+  "checkInTime": "2023-06-20T08:30:00.000Z",
+  "checkOutTime": "2023-06-20T17:30:00.000Z",
+  "comments": "Belgilangan vaqtda keldi"
+}
+```
+
+**Javob (Response):**
+```json
+{
+  "success": true,
+  "message": "Yo'qlama qaydi muvaffaqiyatli yaratildi",
+  "record": {
+    "id": "60d21b4667d0d8992e610d20",
+    "user": {
+      "id": "60d21b4667d0d8992e610c88",
+      "name": "Zokir Salimov"
+    },
+    "recordedBy": {
+      "id": "60d21b4667d0d8992e610c86",
+      "name": "Farhod Karimov"
+    },
+    "date": "2023-06-20T08:00:00.000Z",
+    "status": "present",
+    "checkInTime": "2023-06-20T08:30:00.000Z",
+    "checkOutTime": "2023-06-20T17:30:00.000Z",
+    "comments": "Belgilangan vaqtda keldi",
+    "workingHours": 9,
+    "createdAt": "2023-06-20T09:00:00.000Z",
+    "updatedAt": "2023-06-20T09:00:00.000Z"
+  }
+}
+```
+
+### 5.4. Sex Bo'yicha Yo'qlama Qaydlarini Olish
+
+- **URL**: `/api/attendance/sections/:sectionId`
+- **Method**: `GET`
+- **Auth**: Talab qilinadi
+- **Vazifa**: Muayyan sex uchun yo'qlama qaydlarini olish
+
+**So'rov parametrlari (Query Parameters):**
+- `date`: Sana (ISO format)
+
+**Javob (Response):**
+```json
+{
+  "success": true,
+  "data": {
+    "sectionId": "60d21b4667d0d8992e610c87",
+    "sectionName": "Tovuq parvarish bo'limi",
+    "date": "2023-06-20T08:00:00.000Z",
+    "records": [
+      {
+        "id": "60d21b4667d0d8992e610d20",
+        "user": {
+          "id": "60d21b4667d0d8992e610c88",
+          "name": "Zokir Salimov"
+        },
+        "status": "present",
+        "checkInTime": "2023-06-20T08:30:00.000Z",
+        "checkOutTime": "2023-06-20T17:30:00.000Z"
+      },
+      // Boshqa qaydlar...
+    ],
+    "summary": {
+      "total": 12,
+      "present": 10,
+      "absent": 1,
+      "late": 1,
+      "leave": 0,
+      "sick": 0
+    }
+  }
+}
+```
+
+### 5.5. Xodimning Yo'qlama Qaydlarini Olish
+
+- **URL**: `/api/attendance/users/:userId`
+- **Method**: `GET`
+- **Auth**: Talab qilinadi
+- **Vazifa**: Muayyan xodimning yo'qlama qaydlarini olish
+
+**So'rov parametrlari (Query Parameters):**
+- `startDate`: Boshlang'ich sana (ISO format)
+- `endDate`: Tugash sana (ISO format)
+
+**Javob (Response):**
+```json
+{
+  "success": true,
+  "data": {
+    "userId": "60d21b4667d0d8992e610c88",
+    "userName": "Zokir Salimov",
+    "startDate": "2023-06-01T00:00:00.000Z",
+    "endDate": "2023-06-30T23:59:59.999Z",
+    "records": [
+      {
+        "id": "60d21b4667d0d8992e610d20",
+        "date": "2023-06-20T08:00:00.000Z",
+        "status": "present",
+        "checkInTime": "2023-06-20T08:30:00.000Z",
+        "checkOutTime": "2023-06-20T17:30:00.000Z",
+        "recordedBy": {
+          "id": "60d21b4667d0d8992e610c86",
+          "name": "Farhod Karimov"
+        }
+      },
+      // Boshqa qaydlar...
+    ],
+    "summary": {
+      "total": 20,
+      "present": 18,
+      "absent": 0,
+      "late": 1,
+      "leave": 1,
+      "sick": 0,
+      "totalWorkingHours": 162
+    }
+  }
+}
+```
+
+### 5.6. Yo'qlama Statistikasini Olish
+
+- **URL**: `/api/attendance/stats`
+- **Method**: `GET`
+- **Auth**: Talab qilinadi (boss, manager rollari)
+- **Vazifa**: Yo'qlamalar statistikasini olish
+
+**So'rov parametrlari (Query Parameters):**
+- `startDate`: Boshlang'ich sana (ISO format)
+- `endDate`: Tugash sana (ISO format)
+- `section`: Sex ID si (ixtiyoriy)
+
+**Javob (Response):**
+```json
+{
+  "success": true,
+  "data": {
+    "startDate": "2023-06-01T00:00:00.000Z",
+    "endDate": "2023-06-30T23:59:59.999Z",
+    "overall": {
+      "total": 300,
+      "present": 270,
+      "absent": 10,
+      "late": 15,
+      "leave": 3,
+      "sick": 2,
+      "presentPercentage": 90,
+      "absentPercentage": 3.3,
+      "latePercentage": 5,
+      "averageWorkingHours": 8.5
+    },
+    "sections": [
+      {
+        "id": "60d21b4667d0d8992e610c87",
+        "name": "Tovuq parvarish bo'limi",
+        "stats": {
+          "total": 180,
+          "present": 165,
+          "absent": 5,
+          "late": 8,
+          "leave": 1,
+          "sick": 1,
+          "presentPercentage": 91.7,
+          "absentPercentage": 2.8,
+          "latePercentage": 4.4,
+          "averageWorkingHours": 8.7
+        }
+      },
+      // Boshqa sexlar statistikasi...
+    ]
+  }
+}
+```
+
+## 6. WebSocket Xabarnomalar
+
+Xodimlar boshqaruvi bilan bog'liq real-vaqt xabarnomalar WebSocket orqali yuboriladi.
+
+### 6.1 Yangi Xodim Qo'shilganda
+
+```json
+{
+  "type": "user_created",
+  "data": {
+    "userId": "60d21b4667d0d8992e610c88",
+    "name": "Zokir Salimov",
+    "role": "worker",
+    "section": {
+      "id": "60d21b4667d0d8992e610c87",
+      "name": "Tovuq parvarish bo'limi"
+    },
+    "message": "Yangi xodim qo'shildi: Zokir Salimov (Tovuq parvarish ishchisi)",
+    "timestamp": "2023-06-19T14:00:00.000Z"
+  }
+}
+```
+
+### 6.2 Xodim Menejerga Biriktirilganda
+
+```json
+{
+  "type": "worker_assigned",
+  "data": {
+    "workerId": "60d21b4667d0d8992e610c88",
+    "workerName": "Zokir Salimov",
+    "managerId": "60d21b4667d0d8992e610c86",
+    "managerName": "Farhod Karimov",
+    "message": "Zokir Salimov xodimi Farhod Karimov menejeriga biriktirildi",
+    "timestamp": "2023-06-19T14:30:00.000Z"
+  }
+}
+```
+
+### 6.3 Yo'qlama Vazifasi Yaratilganda
+
+```json
+{
+  "type": "attendance_task_created",
+  "data": {
+    "taskId": "60d21b4667d0d8992e610d10",
+    "assignedTo": {
+      "id": "60d21b4667d0d8992e610c86",
+      "name": "Farhod Karimov"
+    },
+    "section": {
+      "id": "60d21b4667d0d8992e610c87",
+      "name": "Tovuq parvarish bo'limi"
+    },
+    "date": "2023-06-20T08:00:00.000Z",
+    "message": "Sizga yo'qlama vazifasi yuklandi: 3-sex ishchilari yo'qlamasini olish",
+    "timestamp": "2023-06-19T19:00:00.000Z"
+  }
+}
+```
+
+## 7. Rol-Asoslangan Ruxsatlar
+
+### 7.1 Boss (Korxona Boshlig'i) Ruxsatlari
+
+- Barcha xodimlarni ko'rish va filtr qilish
+- Yangi xodimlar qo'shish
+- Xodimlarni tahrirlash va deaktivatsiya qilish
+- Ishchilarni menejerlarga biriktirish
+- Yangi lavozimlar yaratish
+- Yo'qlama vazifalarini yaratish
+- Yo'qlama statistikasini ko'rish
+
+### 7.2 Manager Ruxsatlari
+
+- O'z bo'limiga tegishli xodimlarni ko'rish
+- O'ziga biriktirilgan ishchilarni boshqarish
+- O'z bo'limi yo'qlamasini olish
+- Yo'qlama vazifalarini taqsimlash
+
+### 7.3 Worker Ruxsatlari
+
+- O'z ma'lumotlarini ko'rish
+- O'zining yo'qlama ma'lumotlarini ko'rish

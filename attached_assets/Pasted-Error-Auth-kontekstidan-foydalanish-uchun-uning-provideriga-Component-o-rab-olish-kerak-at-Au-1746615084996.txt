@@ -1,0 +1,180 @@
+Error: Auth kontekstidan foydalanish uchun, uning provideriga Component o`rab olish kerak.
+    at AuthContext.tsx:41:47 Error Component Stack
+    at MeatProductionPage (MeatProductionPage.tsx:100:37)
+    at ProtectedComponent (App.tsx:43:42)
+    at div (<anonymous>)
+    at main (<anonymous>)
+    at div (<anonymous>)
+    at Dashboard (Dashboard.tsx:11:48)
+    at Route (wouter.js?v=3472605e:265:16)
+    at Switch (wouter.js?v=3472605e:321:17)
+    at Router (App.tsx:55:27)
+    at Provider (chunk-OXZDJRWN.js?v=3472605e:38:15)
+    at TooltipProvider (@radix-ui_react-tooltip.js?v=3472605e:64:5)
+    at QueryClientProvider (@tanstack_react-query.js?v=3472605e:2805:3)
+    at Provider (react-redux.js?v=3472605e:923:11)
+    at App (App.tsx:149:33)
+    at NotificationProvider (NotificationContext.tsx:40:75)
+    at AuthProvider (AuthContext.tsx:59:3)
+overrideMethod @ hook.js:608
+useAuth @ AuthContext.tsx:52
+MeatProductionPage @ MeatProductionPage.tsx:101
+renderWithHooks @ chunk-RPCDYKBN.js?v=3472605e:11548
+mountIndeterminateComponent @ chunk-RPCDYKBN.js?v=3472605e:14926
+beginWork @ chunk-RPCDYKBN.js?v=3472605e:15914
+beginWork$1 @ chunk-RPCDYKBN.js?v=3472605e:19753
+performUnitOfWork @ chunk-RPCDYKBN.js?v=3472605e:19198
+workLoopSync @ chunk-RPCDYKBN.js?v=3472605e:19137
+renderRootSync @ chunk-RPCDYKBN.js?v=3472605e:19116
+performConcurrentWorkOnRoot @ chunk-RPCDYKBN.js?v=3472605e:18678
+workLoop @ chunk-RPCDYKBN.js?v=3472605e:197
+flushWork @ chunk-RPCDYKBN.js?v=3472605e:176
+performWorkUntilDeadline @ chunk-RPCDYKBN.js?v=3472605e:384Understand this error
+AuthContext.tsx:52 Error: Auth kontekstidan foydalanish uchun, uning provideriga Component o`rab olish kerak.
+    at AuthContext.tsx:41:47 Error Component Stack
+    at MeatProductionPage (MeatProductionPage.tsx:100:37)
+    at ProtectedComponent (App.tsx:43:42)
+    at div (<anonymous>)
+    at main (<anonymous>)
+    at div (<anonymous>)
+    at Dashboard (Dashboard.tsx:11:48)
+    at Route (wouter.js?v=3472605e:265:16)
+    at Switch (wouter.js?v=3472605e:321:17)
+    at Router (App.tsx:55:27)
+    at Provider (chunk-OXZDJRWN.js?v=3472605e:38:15)
+    at TooltipProvider (@radix-ui_react-tooltip.js?v=3472605e:64:5)
+    at QueryClientProvider (@tanstack_react-query.js?v=3472605e:2805:3)
+    at Provider (react-redux.js?v=3472605e:923:11)
+    at App (App.tsx:149:33)
+    at NotificationProvider (NotificationContext.tsx:40:75)
+    at AuthProvider (AuthContext.tsx:59:3)
+overrideMethod @ hook.js:608
+useAuth @ AuthContext.tsx:52
+MeatProductionPage @ MeatProductionPage.tsx:101
+renderWithHooks @ chunk-RPCDYKBN.js?v=3472605e:11548
+mountIndeterminateComponent @ chunk-RPCDYKBN.js?v=3472605e:14926
+beginWork @ chunk-RPCDYKBN.js?v=3472605e:15914
+callCallback2 @ chunk-RPCDYKBN.js?v=3472605e:3674
+invokeGuardedCallbackDev @ chunk-RPCDYKBN.js?v=3472605e:3699
+invokeGuardedCallback @ chunk-RPCDYKBN.js?v=3472605e:3733
+beginWork$1 @ chunk-RPCDYKBN.js?v=3472605e:19765
+performUnitOfWork @ chunk-RPCDYKBN.js?v=3472605e:19198
+workLoopSync @ chunk-RPCDYKBN.js?v=3472605e:19137
+renderRootSync @ chunk-RPCDYKBN.js?v=3472605e:19116
+performConcurrentWorkOnRoot @ chunk-RPCDYKBN.js?v=3472605e:18678
+workLoop @ chunk-RPCDYKBN.js?v=3472605e:197
+flushWork @ chunk-RPCDYKBN.js?v=3472605e:176
+performWorkUntilDeadline @ chunk-RPCDYKBN.js?v=3472605e:384Understand this error
+AuthContext.tsx:41 Uncaught Error: Auth kontekstidan foydalanish uchun, uning provideriga Component o`rab olish kerak.
+    at AuthContext.tsx:41:47
+(anonymous) @ AuthContext.tsx:41Understand this error
+AuthContext.tsx:52 Error: Auth kontekstidan foydalanish uchun, uning provideriga Component o`rab olish kerak.
+    at AuthContext.tsx:41:47 Error Component Stack
+    at MeatProductionPage (MeatProductionPage.tsx:100:37)
+    at ProtectedComponent (App.tsx:43:42)
+    at div (<anonymous>)
+    at main (<anonymous>)
+    at div (<anonymous>)
+    at Dashboard (Dashboard.tsx:11:48)
+    at Route (wouter.js?v=3472605e:265:16)
+    at Switch (wouter.js?v=3472605e:321:17)
+    at Router (App.tsx:55:27)
+    at Provider (chunk-OXZDJRWN.js?v=3472605e:38:15)
+    at TooltipProvider (@radix-ui_react-tooltip.js?v=3472605e:64:5)
+    at QueryClientProvider (@tanstack_react-query.js?v=3472605e:2805:3)
+    at Provider (react-redux.js?v=3472605e:923:11)
+    at App (App.tsx:149:33)
+    at NotificationProvider (NotificationContext.tsx:40:75)
+    at AuthProvider (AuthContext.tsx:59:3)
+overrideMethod @ hook.js:608
+useAuth @ AuthContext.tsx:52
+MeatProductionPage @ MeatProductionPage.tsx:101
+renderWithHooks @ chunk-RPCDYKBN.js?v=3472605e:11548
+mountIndeterminateComponent @ chunk-RPCDYKBN.js?v=3472605e:14926
+beginWork @ chunk-RPCDYKBN.js?v=3472605e:15914
+beginWork$1 @ chunk-RPCDYKBN.js?v=3472605e:19753
+performUnitOfWork @ chunk-RPCDYKBN.js?v=3472605e:19198
+workLoopSync @ chunk-RPCDYKBN.js?v=3472605e:19137
+renderRootSync @ chunk-RPCDYKBN.js?v=3472605e:19116
+recoverFromConcurrentError @ chunk-RPCDYKBN.js?v=3472605e:18736
+performConcurrentWorkOnRoot @ chunk-RPCDYKBN.js?v=3472605e:18684
+workLoop @ chunk-RPCDYKBN.js?v=3472605e:197
+flushWork @ chunk-RPCDYKBN.js?v=3472605e:176
+performWorkUntilDeadline @ chunk-RPCDYKBN.js?v=3472605e:384Understand this error
+AuthContext.tsx:52 Error: Auth kontekstidan foydalanish uchun, uning provideriga Component o`rab olish kerak.
+    at AuthContext.tsx:41:47 Error Component Stack
+    at MeatProductionPage (MeatProductionPage.tsx:100:37)
+    at ProtectedComponent (App.tsx:43:42)
+    at div (<anonymous>)
+    at main (<anonymous>)
+    at div (<anonymous>)
+    at Dashboard (Dashboard.tsx:11:48)
+    at Route (wouter.js?v=3472605e:265:16)
+    at Switch (wouter.js?v=3472605e:321:17)
+    at Router (App.tsx:55:27)
+    at Provider (chunk-OXZDJRWN.js?v=3472605e:38:15)
+    at TooltipProvider (@radix-ui_react-tooltip.js?v=3472605e:64:5)
+    at QueryClientProvider (@tanstack_react-query.js?v=3472605e:2805:3)
+    at Provider (react-redux.js?v=3472605e:923:11)
+    at App (App.tsx:149:33)
+    at NotificationProvider (NotificationContext.tsx:40:75)
+    at AuthProvider (AuthContext.tsx:59:3)
+overrideMethod @ hook.js:608
+useAuth @ AuthContext.tsx:52
+MeatProductionPage @ MeatProductionPage.tsx:101
+renderWithHooks @ chunk-RPCDYKBN.js?v=3472605e:11548
+mountIndeterminateComponent @ chunk-RPCDYKBN.js?v=3472605e:14926
+beginWork @ chunk-RPCDYKBN.js?v=3472605e:15914
+callCallback2 @ chunk-RPCDYKBN.js?v=3472605e:3674
+invokeGuardedCallbackDev @ chunk-RPCDYKBN.js?v=3472605e:3699
+invokeGuardedCallback @ chunk-RPCDYKBN.js?v=3472605e:3733
+beginWork$1 @ chunk-RPCDYKBN.js?v=3472605e:19765
+performUnitOfWork @ chunk-RPCDYKBN.js?v=3472605e:19198
+workLoopSync @ chunk-RPCDYKBN.js?v=3472605e:19137
+renderRootSync @ chunk-RPCDYKBN.js?v=3472605e:19116
+recoverFromConcurrentError @ chunk-RPCDYKBN.js?v=3472605e:18736
+performConcurrentWorkOnRoot @ chunk-RPCDYKBN.js?v=3472605e:18684
+workLoop @ chunk-RPCDYKBN.js?v=3472605e:197
+flushWork @ chunk-RPCDYKBN.js?v=3472605e:176
+performWorkUntilDeadline @ chunk-RPCDYKBN.js?v=3472605e:384Understand this error
+AuthContext.tsx:41 Uncaught Error: Auth kontekstidan foydalanish uchun, uning provideriga Component o`rab olish kerak.
+    at AuthContext.tsx:41:47
+(anonymous) @ AuthContext.tsx:41Understand this error
+hook.js:608 The above error occurred in the <MeatProductionPage> component:
+
+    at MeatProductionPage (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/pages/MeatProductionPage.tsx:53:37)
+    at ProtectedComponent (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/App.tsx?t=1746614833544&v=lCg-PQerb34L2YaWqFO8f:57:42)
+    at div
+    at main
+    at div
+    at Dashboard (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/components/layout/Dashboard.tsx:22:22)
+    at Route (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=3472605e:265:16)
+    at Switch (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=3472605e:321:17)
+    at Router (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/App.tsx?t=1746614833544&v=lCg-PQerb34L2YaWqFO8f:74:27)
+    at Provider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-OXZDJRWN.js?v=3472605e:38:15)
+    at TooltipProvider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=3472605e:64:5)
+    at QueryClientProvider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@tanstack_react-query.js?v=3472605e:2805:3)
+    at Provider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/react-redux.js?v=3472605e:923:11)
+    at App (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/App.tsx?t=1746614833544&v=lCg-PQerb34L2YaWqFO8f:275:33)
+    at NotificationProvider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/contexts/NotificationContext.tsx?v=lCg-PQerb34L2YaWqFO8f:42:40)
+    at AuthProvider (https://533bdf96-369a-4039-811d-961a5fef4a61-00-2yvzc7xfz0jlu.picard.replit.dev/src/contexts/AuthContext.tsx?v=lCg-PQerb34L2YaWqFO8f:45:3)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
+overrideMethod @ hook.js:608
+logCapturedError @ chunk-RPCDYKBN.js?v=3472605e:14032
+update.callback @ chunk-RPCDYKBN.js?v=3472605e:14052
+callCallback @ chunk-RPCDYKBN.js?v=3472605e:11248
+commitUpdateQueue @ chunk-RPCDYKBN.js?v=3472605e:11265
+commitLayoutEffectOnFiber @ chunk-RPCDYKBN.js?v=3472605e:17093
+commitLayoutMountEffects_complete @ chunk-RPCDYKBN.js?v=3472605e:17980
+commitLayoutEffects_begin @ chunk-RPCDYKBN.js?v=3472605e:17969
+commitLayoutEffects @ chunk-RPCDYKBN.js?v=3472605e:17920
+commitRootImpl @ chunk-RPCDYKBN.js?v=3472605e:19353
+commitRoot @ chunk-RPCDYKBN.js?v=3472605e:19277
+finishConcurrentRender @ chunk-RPCDYKBN.js?v=3472605e:18760
+performConcurrentWorkOnRoot @ chunk-RPCDYKBN.js?v=3472605e:18718
+workLoop @ chunk-RPCDYKBN.js?v=3472605e:197
+flushWork @ chunk-RPCDYKBN.js?v=3472605e:176
+performWorkUntilDeadline @ chunk-RPCDYKBN.js?v=3472605e:384Understand this error
+chunk-RPCDYKBN.js?v=3472605e:19413 Uncaught Error: Auth kontekstidan foydalanish uchun, uning provideriga Component o`rab olish kerak.
