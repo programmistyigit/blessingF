@@ -70,7 +70,7 @@ export default function PeriodsPage() {
   };
 
   // Filter periods by status
-  const filteredPeriods = typeof (data) == "object" && data?.filter((period: Period) => {
+  const filteredPeriods = Array.isArray(data) && data?.filter((period: Period) => {
     if (statusFilter === 'all') return true;
     return period.status.toLowerCase() === statusFilter.toLowerCase();
   }) || [];
